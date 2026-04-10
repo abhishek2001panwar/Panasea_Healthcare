@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { TestimonialsSection } from "./testimonials-section";
 
 function ScrollRevealText({ text }: { text: string }) {
   const containerRef = useRef<HTMLParagraphElement>(null);
@@ -60,26 +61,26 @@ function ScrollRevealText({ text }: { text: string }) {
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1000",
-    alt: "Forest trail",
+    src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000",
+    alt: "Medical equipment",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=1000",
-    alt: "Mountain peak",
+    src: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1000",
+    alt: "Medical lab",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000",
-    alt: "Alpine landscape",
+    src: "https://images.unsplash.com/photo-1631217314831-4a9ad648b3e6?q=80&w=1000",
+    alt: "Healthcare technology",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000",
-    alt: "Snow mountain",
+    src: "https://images.unsplash.com/photo-1579154204601-01d82b3f1cd6?q=80&w=1000",
+    alt: "Medical supplies",
     position: "right",
     span: 1,
   },
@@ -91,7 +92,7 @@ export function TechnologySection() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [textProgress, setTextProgress] = useState(0);
   
-  const descriptionText = "Experience outdoor gear reimagined with cutting-edge technology. Alpine & Forest accessories combine ultra-lightweight materials, intelligent temperature control, and weather-resistant engineering to elevate every adventure. From mountain peaks to forest trails, your gear adapts to the conditions.";
+  const descriptionText = "Our advanced healthcare supply chain technology ensures precision at every step. From temperature-controlled logistics to real-time inventory tracking, we combine innovative solutions with industry expertise to deliver reliable, quality-assured medical products. Your healthcare facility deserves equipment that performs under pressure.";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -198,8 +199,8 @@ export function TechnologySection() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2000"
-                alt="Aerial view of camping expedition in wilderness"
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000"
+                alt="Modern healthcare technology and medical equipment"
                 fill
                 className="object-cover"
               />
@@ -210,7 +211,7 @@ export function TechnologySection() {
                 className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
               >
                 <h2 className="max-w-3xl font-medium leading-tight tracking-tight text-white md:text-5xl lg:text-7xl text-5xl">
-                  {["Technology", "Meets", "Wilderness."].map((word, index) => {
+                  {["Healthcare", "Delivered", "Right"].map((word, index) => {
                     // Each word fades out sequentially based on scrollProgress
                     const wordFadeStart = index * 0.07; // Technology: 0, Meets: 0.07, Wilderness: 0.14
                     const wordFadeEnd = wordFadeStart + 0.07;
@@ -277,14 +278,15 @@ export function TechnologySection() {
       {/* Description Section with Background Image and Scroll Reveal */}
       <div 
         ref={textSectionRef}
-        className="relative overflow-hidden bg-background px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40"
+        className="relative overflow-hidden bg-background py-10"
       >
         {/* Background Image with Grayscale Filter */}
         
 
         {/* Text Content */}
         <div className="relative z-10 mx-auto max-w-4xl">
-          <ScrollRevealText text={descriptionText} />
+          {/* <ScrollRevealText text={descriptionText} /> */}
+          <TestimonialsSection />
         </div>
       </div>
     </section>

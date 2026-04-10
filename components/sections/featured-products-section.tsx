@@ -1,86 +1,130 @@
-"use client";
+// "use client";
 
-import { FadeImage } from "@/components/fade-image";
+// import { FadeImage } from "@/components/fade-image";
 
-const features = [
-  {
-    title: "Smart Temperature Control",
-    description: "Innovation",
-    image: "/images/d18fe616-5596-4559-90f5-a90f5397d0d8.png",
-  },
-  {
-    title: "Ultra-Light Carbon Frame",
-    description: "Performance",
-    image: "/images/e26fa9c3-966d-4966-94a4-954a1e511c1c.png",
-  },
-  {
-    title: "Weather-Resistant Design",
-    description: "Durability",
-    image: "/images/car.jpg",
-  },
-  {
-    title: "Integrated GPS Tracking",
-    description: "Navigation",
-    image: "/images/204cee22-9e85-49e8-9303-1d309af626b0.png",
-  },
-  {
-    title: "Built-In LED Flashlight",
-    description: "Visibility",
-    image: "/images/led-flashlight-bottle.png",
-  },
-  {
-    title: "Self-Heating Technology",
-    description: "Comfort",
-    image: "/images/heating-campfire.png",
-  },
-];
+// const features = [
+//   {
+//     title: "Pharmaceuticals",
+//     description:
+//       "A broad range of prescription medicines, life-saving drugs, OTC products, and wellness supplements - fully compliant with drug regulatory standards.",
+//     icon: "💊",
+//     cta: "Request catalog →",
+//     image: "/product1.png",
+//   },
+//   {
+//     title: "Medical Disposables",
+//     description:
+//       "Hospital-grade gloves, syringes, IV sets, surgical masks, drapes, and protective equipment for clinics, hospitals, and diagnostic labs.",
+//     icon: "🩺",
+//     cta: "Request catalog →",
+//     image: "/product2.png",
+//   },
+//   {
+//     title: "Diagnostic Equipment",
+//     description:
+//       "High-performance imaging, monitoring, and diagnostic instruments from globally trusted brands, supporting precision in patient care.",
+//     icon: "🔭",
+//     cta: "Request catalog →",
+//     image: "/product3.png",
+//   },
+//   {
+//     title: "Surgical Instruments & OT Equipment",
+//     description:
+//       "Modern OT tables, surgical lighting, sterile instrument sets, and patient monitoring systems for advanced surgical environments.",
+//     icon: "🏥",
+//     cta: "Request catalog →",
+//     image: "/product4.png",
+//   },
+//   {
+//     title: "Lab Reagents & Test Kits",
+//     description:
+//       "Specialized diagnostic consumables, lab reagents, rapid test kits, and sample collection supplies for pathology and research labs.",
+//     icon: "🧪",
+//     cta: "Request catalog →",
+//     image: "/product5.png",
+//   },
+//   {
+//     title: "HVAC & Clean Room Solutions",
+//     description:
+//       "Hospital-grade HEPA filtration systems and climate control solutions designed to maintain sterile conditions in critical care environments.",
+//     icon: "🌡️",
+//     cta: "Request catalog →",
+//     image: "/product6.png",
+//   },
+// ];
 
-export function FeaturedProductsSection() {
+// export function FeaturedProductsSection() {
+//   return (
+//     <section id="technology" className="bg-background">
+//       {/* Section Title */}
+//       <div className="px-6 text-left md:px-12  lg:px-20  mb-10">
+//         <p className="mx-auto mt-6 uppercase  text-sm text-muted-foreground">
+//           Our Products
+//         </p>
+//         <h2 className="mt-1 text-2xl  tracking-tight text-foreground md:text-3xl lg:text-4xl">
+//           A Complete Portfolio of 
+          
+//          Medical Supplies
+
+//         </h2>
+       
+//       </div>
+
+//       {/* Features Grid */}
+//       <div className="grid grid-cols-1 gap-4 px-6  md:grid-cols-3 max-w-8xl mx-16">
+//         {features.map((feature) => (
+//           <div key={feature.title} className="group">
+//             {/* Image */}
+//             <div className="relative aspect-[4/3] overflow-hidden">
+//               <FadeImage
+//                 src={feature.image || "/placeholder.svg"}
+//                 alt={feature.title}
+//                 fill
+//                 className="object-cover  overflow-hidden rounded-2xl transition-transform duration-500"
+//               />
+             
+//             </div>
+
+//             {/* Content */}
+//             <div className="py-6">
+//               <h3 className="text-foreground text-xl mb-2 ">
+//                 {feature.title}
+//               </h3>
+//               <p className=" text-sm    text-muted-foreground">
+//                 {feature.description}
+//               </p>
+//                 <div className="mt-5">
+//                   <a
+//                     href="#products"
+//                     className="text-black text-sm underline underline-offset-4 hover:text-neutral-700 transition-colors duration-150 p-0 bg-transparent border-none shadow-none"
+//                     style={{padding:0, background:'none', border:'none', boxShadow:'none'}}
+//                   >
+//                     Explore
+//                   </a>
+//                 </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* CTA Link */}
+     
+//     </section>
+//   );
+// }
+
+
+import React from 'react'
+import ProductPage from '../../app/products/page';
+
+function FeaturedProductsSection() {
   return (
-    <section id="technology" className="bg-background">
-      {/* Section Title */}
-      <div className="px-6 py-20 text-center md:px-12 md:py-28 lg:px-20 lg:py-32 lg:pb-20">
-        <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          Engineered for Excellence.
-          <br />
-          Designed for Adventure.
-        </h2>
-        <p className="mx-auto mt-6 max-w-md text-sm text-muted-foreground">
-          Technology
-        </p>
-      </div>
-
-      {/* Features Grid */}
-      <div className="grid grid-cols-1 gap-4 px-6 pb-20 md:grid-cols-3 md:px-12 lg:px-20">
-        {features.map((feature) => (
-          <div key={feature.title} className="group">
-            {/* Image */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <FadeImage
-                src={feature.image || "/placeholder.svg"}
-                alt={feature.title}
-                fill
-                className="object-cover group-hover:scale-105"
-              />
-            </div>
-
-            {/* Content */}
-            <div className="py-6">
-              <p className="mb-2 text-xs uppercase tracking-widest text-muted-foreground">
-                {feature.description}
-              </p>
-              <h3 className="text-foreground text-xl font-semibold">
-                {feature.title}
-              </h3>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* CTA Link */}
-      <div className="flex justify-center px-6 pb-28 md:px-12 lg:px-20">
-        
-      </div>
-    </section>
-  );
+    <div 
+      id="products"
+    >
+      <ProductPage />
+    </div>
+  )
 }
+
+export default FeaturedProductsSection

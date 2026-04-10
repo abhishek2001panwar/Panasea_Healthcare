@@ -1,25 +1,84 @@
+// import Link from "next/link";
+
+// export function FooterSection() {
+//   return (
+//     <footer className="bg-white text-black pt-16 pb-6 px-6 md:px-12 lg:px-20">
+//       <div className="max-w-8xl mx-auto">
+//         <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
+//           {/* Brand & Description */}
+//           <div>
+//             <span className="text-2xl  font-semibold text-black">Panasea <span className="text-teal-600">Healthcare</span></span>
+//             <p className="mt-4 max-w-xs text-base leading-relaxed text-gray-700">
+//               Your trusted partner in pharmaceutical distribution and medical supply-delivering quality, reliability, and care across India and beyond.
+//             </p>
+//           </div>
+//           {/* Quick Links */}
+//           <div>
+//             <h4 className="mb-4 text-sm font-bold tracking-widest text-black uppercase">Quick Links</h4>
+//             <ul className="space-y-3">
+//               <li><Link href="#about" className="hover:text-teal-600 transition">About Us</Link></li>
+//               <li><Link href="#products" className="hover:text-teal-600 transition">Our Products</Link></li>
+//               <li><Link href="#services" className="hover:text-teal-600 transition">Our Services</Link></li>
+//               <li><Link href="#choose" className="hover:text-teal-600 transition">Why Choose Us</Link></li>
+//               <li><Link href="#contact" className="hover:text-teal-600 transition">Contact</Link></li>
+//             </ul>
+//           </div>
+//           {/* Products */}
+//           <div>
+//             <h4 className="mb-4 text-sm font-bold tracking-widest text-black uppercase">Products</h4>
+//             <ul className="space-y-3">
+//               <li><Link href="#" className="hover:text-teal-600 transition">Pharmaceuticals</Link></li>
+//               <li><Link href="#" className="hover:text-teal-600 transition">Medical Disposables</Link></li>
+//               <li><Link href="#" className="hover:text-teal-600 transition">Diagnostic Equipment</Link></li>
+//               <li><Link href="#" className="hover:text-teal-600 transition">Surgical Equipment</Link></li>
+//               <li><Link href="#" className="hover:text-teal-600 transition">Lab Supplies</Link></li>
+//             </ul>
+//           </div>
+//           {/* Contact Us */}
+//           <div>
+//             <h4 className="mb-4 text-sm font-bold tracking-widest text-black uppercase">Contact Us</h4>
+//             <ul className="space-y-3">
+//               <li className="flex items-center gap-2"><span className="text-pink-600 text-lg">&#128222;</span> <span>+91 876 543 210</span></li>
+//               <li className="flex items-center gap-2"><span className="text-teal-600 text-lg">&#128231;</span> <span>panaseahealthcare@gmail.com</span></li>
+//               <li className="text-gray-600">Pan-India Distribution</li>
+//               <li className="text-gray-600">Import & Export Services</li>
+//             </ul>
+//           </div>
+//         </div>
+//         <hr className="my-8 border-gray-200" />
+//         <div className="flex flex-col md:flex-row items-center justify-between text-sm text-gray-600 gap-4">
+//           <span>© 2025 Panasea Healthcare. All rights reserved.</span>
+//           <span className="md:ml-auto">Trusted Healthcare Distribution</span>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
 "use client";
 
 import Link from "next/link";
 
 const footerLinks = {
   explore: [
-    { label: "Products", href: "#products" },
-    { label: "Technology", href: "#technology" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Accessories", href: "#accessories" },
+    { label: "About Us", href: "#about" },
+    { label: "Our Products", href: "#technology" },
+    { label: "Our Services", href: "#gallery" },
+    { label: "Why Choose Us", href: "#accessories" },
+    { label: "Contact", href: "#contact" },
   ],
+
   about: [
-    { label: "Our Story", href: "#" },
-    { label: "Team", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "Pharmaceuticals", href: "#" },
+    { label: "Medical Disposables", href: "#" },
+    { label: "Diagnostic Equipment", href: "#" },
+    { label: "Surgical Equipment", href: "#" },
+    { label: "Lab Supplies", href: "#" },
   ],
   service: [
-    { label: "FAQ", href: "#" },
-    { label: "Shipping", href: "#" },
-    { label: "Returns", href: "#" },
-    { label: "Warranty", href: "#" },
+    { label: "📞 +91 876 543 210", href: "#" },
+    { label: "✉️ panaseahealthcare@gmail.com", href: "#" },
+    { label: "Pan-India Distribution\nImport & Export Services", href: "#" },
   ],
 };
 
@@ -31,17 +90,21 @@ export function FooterSection() {
         <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
-            <Link href="/" className="text-lg font-medium text-foreground">
-              EVASION
+            <Link href="/" className="text-3xl font-medium text-foreground">
+              Panasea
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Premium smart bottles engineered for adventure. GPS tracking, LED flashlight, and self-heating technology.
+              Your trusted partner in pharmaceutical distribution and medical
+              supply-delivering quality, reliability, and care across India and
+              beyond.
             </p>
           </div>
 
           {/* Explore */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">Explore</h4>
+            <h4 className="mb-4 text-sm font-medium text-foreground">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {footerLinks.explore.map((link) => (
                 <li key={link.label}>
@@ -58,7 +121,9 @@ export function FooterSection() {
 
           {/* About */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">About</h4>
+            <h4 className="mb-4 text-sm font-medium text-foreground">
+              Products
+            </h4>
             <ul className="space-y-3">
               {footerLinks.about.map((link) => (
                 <li key={link.label}>
@@ -75,7 +140,9 @@ export function FooterSection() {
 
           {/* Service */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">Service</h4>
+            <h4 className="mb-4 text-sm font-medium text-foreground">
+              Contact Us
+            </h4>
             <ul className="space-y-3">
               {footerLinks.service.map((link) => (
                 <li key={link.label}>
@@ -96,10 +163,8 @@ export function FooterSection() {
       <div className="border-t border-border px-6 py-6 md:px-12 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-xs text-muted-foreground">
-            2026 EVASION. All rights reserved.
+            © 2025 Panasea Healthcare. All rights reserved.{" "}
           </p>
-
-          
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
@@ -107,20 +172,9 @@ export function FooterSection() {
               href="#"
               className="text-xs text-muted-foreground transition-colors hover:text-foreground"
             >
-              Instagram
+              Trusted Healthcare Distribution
             </Link>
-            <Link
-              href="#"
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Twitter
-            </Link>
-            <Link
-              href="#"
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              YouTube
-            </Link>
+           
           </div>
         </div>
       </div>

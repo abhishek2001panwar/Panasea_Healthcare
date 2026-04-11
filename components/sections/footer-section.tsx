@@ -57,23 +57,24 @@
 
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 const footerLinks = {
   explore: [
     { label: "About Us", href: "#about" },
-    { label: "Our Products", href: "#technology" },
-    { label: "Our Services", href: "#gallery" },
-    { label: "Why Choose Us", href: "#accessories" },
+    { label: "Our Products", href: "#products" },
+    { label: "Our Services", href: "#services" },
+    { label: "Why Choose Us", href: "#why-choose-us" },
     { label: "Contact", href: "#contact" },
   ],
 
   about: [
-    { label: "Pharmaceuticals", href: "#" },
-    { label: "Medical Disposables", href: "#" },
-    { label: "Diagnostic Equipment", href: "#" },
-    { label: "Surgical Equipment", href: "#" },
-    { label: "Lab Supplies", href: "#" },
+    { label: "Pharmaceuticals", href: "/products/pharmaceuticals" },
+    { label: "Medical Disposables", href: "/products/medical-disposables" },
+    { label: "Diagnostic Equipment", href: "/products/diagnostic-equipment" },
+    { label: "Surgical Equipment", href: "/products/surgical-equipment" },
+    { label: "Lab Supplies", href: "/products/lab-supplies" },
   ],
   service: [
     { label: "📞 +91 876 543 210", href: "#" },
@@ -90,10 +91,16 @@ export function FooterSection() {
         <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
-            <Link href="/" className="text-3xl font-medium text-foreground">
-              Panasea
-            </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+          
+             <Image 
+             src={'/logo.png'}
+             alt="Panasea Healthcare Logo"
+             width={170}
+             height={40}
+             className="mb-4"
+            />
+            
+            <p className="mt-4 max-w-xs  text-left text-sm leading-relaxed text-muted-foreground">
               Your trusted partner in pharmaceutical distribution and medical
               supply-delivering quality, reliability, and care across India and
               beyond.

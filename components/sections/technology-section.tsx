@@ -73,13 +73,13 @@ const sideImages = [
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1631217314831-4a9ad648b3e6?q=80&w=1000",
+    src: "https://plus.unsplash.com/premium_photo-1675808577247-2281dc17147a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGhlYWx0aGNhcmV8ZW58MHx8MHx8fDA%3D",
     alt: "Healthcare technology",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1579154204601-01d82b3f1cd6?q=80&w=1000",
+    src: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhbHRoY2FyZSUyMG1lZGlhbHxlbnwwfHwwfHx8MA%3D%3D",
     alt: "Medical supplies",
     position: "right",
     span: 1,
@@ -199,7 +199,7 @@ export function TechnologySection() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000"
+                src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aGVhbHRoY2FyZXxlbnwwfHwwfHx8MA%3D%3Dhttps://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000"
                 alt="Modern healthcare technology and medical equipment"
                 fill
                 className="object-cover"

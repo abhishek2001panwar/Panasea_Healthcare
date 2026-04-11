@@ -55,7 +55,7 @@ export default function CategoryPage() {
         </div>
 
         {/* Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {category.items.map((item, idx) => (
             <div
               key={item.name}
@@ -66,7 +66,7 @@ export default function CategoryPage() {
                 transitionDelay: `${(idx + 1) * 80}ms`,
               }}
             >
-              <div className="h-full bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-gray-200 hover:shadow-md transition-all duration-500">
+              <div className="h-full bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-gray-200  transition-all duration-500">
                 
                 {/* Image Container */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-gray-50">

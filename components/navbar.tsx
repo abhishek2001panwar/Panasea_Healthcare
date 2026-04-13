@@ -42,9 +42,28 @@ export default function Navbar() {
           onClick={() => setMobileOpen(false)}
         >
           <div
-            className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl px-8 py-10 flex flex-col items-center gap-8 min-w-[80vw] max-w-xs"
+            className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl px-8 py-10 flex flex-col items-center gap-8 min-w-[80vw] max-w-xs relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button - Top Right Corner */}
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 text-[#212C5F] transition transform hover:scale-110 active:scale-95"
+              title="Close menu"
+            >
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                viewBox="0 0 24 24"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}

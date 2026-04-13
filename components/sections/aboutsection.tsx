@@ -65,7 +65,7 @@ const AboutSection: React.FC = () => {
   return (
     <section 
     id="about"
-      className="relative w-full overflow-hidden py-10 bg-[]"
+      className="relative w-full overflow-hidden py-2 bg-[]"
       ref={sectionRef}
       style={sectionAnim}
     >

@@ -266,7 +266,7 @@ function ServiceCard({ service, index }) {
       style={cardAnim}
       className="h-full"
     >
-      <div className="h-full bg-white rounded-2xl overflow-hidden shadow-xs border border-gray-100/50 relative">
+      <div className="h-full bg-white rounded-xl overflow-hidden shadow-xs border-px border-gray-100/50 relative">
         {/* Image Container */}
         <div className="relative h-56 overflow-hidden bg-gray-100">
           <img

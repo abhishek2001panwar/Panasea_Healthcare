@@ -634,3 +634,56 @@ body{
             transform: translateY(0);
           }
         }
+
+
+ @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+
+        /* Mobile Specific Optimizations */
+        @media (max-width: 640px) {
+          /* Prevent text overflow on small devices */
+          h2 {
+            word-spacing: -0.1em;
+          }
+          /* Adjust padding for smaller screens */
+          section {
+            padding-top: 10em;
+      }
+        }
+
+        /* Tablet Optimizations */
+        @media (min-width: 768px) and (max-width: 1024px) {
+          section {
+            min-height: auto;
+            
+          }
+             section {
+            padding-top: 10em;
+      }
+        }
+
+        /* Large screens - Auto height instead of full viewport */
+        @media (min-width: 1024px) {
+          section {
+            min-height: auto;
+          }
+        }

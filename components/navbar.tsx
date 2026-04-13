@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const NAV_LINKS = [
@@ -68,11 +69,11 @@ export default function Navbar() {
           show ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-3 md:py-4 flex items-center justify-between 
+        <div className=" sm:px-8 md:px-12 lg:px-20 py-3 md:py-4 flex items-center justify-between 
         bg-white/10 backdrop-blur-3xl border-b border-white/20">
 
           {/* Logo */}
-          <div className=" text-2xl font-bold ">
+          <Link href={'/'} className=" text-2xl font-bold ">
            <Image 
                 src="/logo.png"
                 alt="Panasea Logo"
@@ -80,7 +81,7 @@ export default function Navbar() {
                 height={30}
                 className="object-contain"
                 />
-          </div>
+          </Link>
 
           {/* Links */}
           <div className="hidden md:flex gap-8 mx-auto">

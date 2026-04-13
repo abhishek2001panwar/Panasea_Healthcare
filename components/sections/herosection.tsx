@@ -55,7 +55,7 @@ export function HeroSections() {
       <div className="relative z-10 w-full">
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 w-full max-w-7xl mx-auto">
           {/* Responsive Padding - Top spacing for navbar, reduced bottom */}
-          <div className="pt-8 pb-8 sm:pt-10 sm:pb-10 md:pt-14 md:pb-12 lg:pt-16 lg:pb-14 xl:pt-20 xl:pb-16">
+          <div className="pt-24 pb-8 sm:pt-28 sm:pb-10 md:pt-32 md:pb-12 lg:pt-40 lg:pb-14 xl:pt-42">
             {/* Grid Layout - Responsive */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-14 xl:gap-16 items-center">
               
@@ -93,7 +93,7 @@ export function HeroSections() {
                 </p>
 
                 {/* CTA Buttons - Fully Responsive */}
-                <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 md:pt-8">
+                <div className="flex flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 md:pt-8 w-auto">
                   <Link
                     href="/#products"
                     className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 bg-gradient-to-r from-[#212C5F] to-[#1A2250] hover:from-[#1A2250] hover:to-[#15182F] text-white font-bold text-xs sm:text-sm md:text-base rounded-lg sm:rounded-lg md:rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 whitespace-nowrap"

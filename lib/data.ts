@@ -187,12 +187,12 @@ items: [
   {
     name: "Anesthesia Workstations",
     description: "Integrated systems for safe and efficient anesthesia delivery.",
-    image: "/products/surgical3.png",
+    image: "https://media.istockphoto.com/id/896374754/photo/medical-equipment-for-electrostimulating-and-ultrasound-therapy.webp?a=1&b=1&s=612x612&w=0&k=20&c=LXyAjn7fqrmEqB1I2lBmK7l9607ffe9OEoRJ6jKGXZs=",
   },
   {
     name: "Electrosurgical Units",
     description: "High-performance units for cutting and coagulation procedures.",
-    image: "/products/surgical4.png",
+    image: "https://plus.unsplash.com/premium_photo-1661853797396-f6b58f6e5b0c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8RWxlY3Ryb3N1cmdpY2FsJTIwVW5pdHMlMjBIaWdoLXBlcmZvcm1hbmNlJTIwdW5pdHMlMjBmb3IlMjBjdXR0aW5nJTIwYW5kJTIwY29hfGVufDB8fDB8fHww",
   },
   {
     name: "Suction Apparatus",

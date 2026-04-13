@@ -240,27 +240,27 @@ items: [
   {
     name: "HEPA Filters & Air Purification Systems",
     description: "High-efficiency filtration systems for clean and controlled environments.",
-    image: "/products/hvac1.png",
+    image: "https://plus.unsplash.com/premium_photo-1661962255083-27907427f03a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SEVQQSUyMEZpbHRlcnMlMjAlMjYlMjBBaXIlMjBQdXJpZmljYXRpb24lMjBTeXN0ZW1zJTIwSGlnaC1lZmZpY2llbmN5JTIwZmlsdHJhdGlvbiUyMHN5c3RlbXMlMjBmb3IlMjBjbGVhbiUyMGFuZCUyMGNvbnRyb2xsZWR8ZW58MHx8MHx8fDA%3D",
   },
   {
     name: "HVAC Systems for Sterile Zones",
     description: "Advanced climate control solutions for hospitals and cleanrooms.",
-    image: "/products/hvac2.png",
+    image: "/hvac2.png",
   },
   {
     name: "Medical Gas Pipeline Equipment",
     description: "Safe and reliable gas distribution systems for healthcare facilities.",
-    image: "/products/hvac3.png",
+    image: "https://plus.unsplash.com/premium_photo-1661962748618-ae954e38b5ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVkaWNhbCUyMEdhcyUyMFBpcGVsaW5lJTIwRXF1aXBtZW50fGVufDB8fDB8fHww",
   },
   {
     name: "Cleanroom Garments & Isolation Suits",
     description: "Sterile protective wear for contamination-free environments.",
-    image: "/products/hvac4.png",
+    image: "https://plus.unsplash.com/premium_photo-1661838213509-26fdecce04e2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2xlYW5yb29tJTIwR2FybWVudHMlMjAlMjYlMjBJc29sYXRpb24lMjBTdWl0c3xlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     name: "Modular Operation Theater Setups",
     description: "Pre-engineered OT solutions for modern surgical environments.",
-    image: "/products/hvac5.png",
+    image: "https://images.unsplash.com/photo-1559000357-f6b52ddfbe37?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fE1vZHVsYXIlMjBPcGVyYXRpb24lMjBUaGVhdGVyJTIwU2V0dXBzfGVufDB8fDB8fHww",
   },
 ]
   },

@@ -69,17 +69,17 @@ const footerLinks = {
     { label: "Contact", href: "#contact" },
   ],
 
-  about: [
-    { label: "Pharmaceuticals", href: "/products/pharmaceuticals" },
-    { label: "Medical Disposables", href: "/products/medical-disposables" },
-    { label: "Diagnostic Equipment", href: "/products/diagnostic-equipment" },
-    { label: "Surgical Equipment", href: "/products/surgical-equipment" },
-    { label: "Lab Supplies", href: "/products/lab-supplies" },
-  ],
+about: [
+  { label: "Pharmaceuticals", href: "/products/pharmaceuticals" },
+  { label: "Medical Disposables", href: "/products/medical-disposables" },
+  { label: "Diagnostic Equipment", href: "/products/diagnostic-equipment" },
+  { label: "Surgical Instruments", href: "/products/surgical-instruments-ot-equipment" },
+  { label: "Lab Reagents & Test Kits", href: "/products/lab-reagents-test-kits" },
+],
   service: [
     { label: "📞 +91 876 543 210", href: "#" },
     { label: "✉️ panaseahealthcare@gmail.com", href: "#" },
-    { label: "Pan-India Distribution\nImport & Export Services", href: "#" },
+    { label: "Pan-India Distribution  \nImport & Export Services", href: "#" },
   ],
 };
 
@@ -150,7 +150,7 @@ export function FooterSection() {
             <h4 className="mb-4 text-sm font-medium text-foreground">
               Contact Us
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {footerLinks.service.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -161,7 +161,9 @@ export function FooterSection() {
                   </Link>
                 </li>
               ))}
+              
             </ul>
+            
           </div>
         </div>
       </div>

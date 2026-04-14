@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { addContactMessage } from "@/lib/supabase";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -8,7 +9,13 @@ export default function ContactSection() {
     email: "",
     organization: "",
     message: "",
+    type: "",
+    way: "",
   });
+
+  const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,9 +25,48 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setSubmitStatus("loading");
+    setSubmitting(true);
+
+    try {
+      // Validate all required fields
+      if (!formData.name || !formData.phone || !formData.email || !formData.organization || !formData.message) {
+        throw new Error("Please fill in all required fields");
+      }
+
+      // Submit to Supabase
+      await addContactMessage({
+        ...formData,
+        type: formData.type || "general",
+        way: formData.way || "website",
+      });
+
+      setSubmitStatus("success");
+      setSubmitMessage("Thank you! Your message has been received. We'll get back to you within 24 hours.");
+
+      // Reset form
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        organization: "",
+        message: "",
+        type: "",
+        way: "",
+      });
+
+      // Auto-close success overlay after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 3000);
+    } catch (error: any) {
+      setSubmitStatus("error");
+      setSubmitMessage(error.message || "Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -127,6 +173,44 @@ export default function ContactSection() {
                     />
                   </div>
 
+                  {/* Type & Way Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+                    <div>
+                      <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
+                        Inquiry Type
+                      </label>
+                      <select
+                        name="type"
+                        value={formData.type}
+                        onChange={handleInputChange}
+                        className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
+                      >
+                        <option value="">Select Type</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="bulk_order">Bulk Order</option>
+                        <option value="support">Support</option>
+                        <option value="general">General Inquiry</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
+                        How did you find us?
+                      </label>
+                      <select
+                        name="way"
+                        value={formData.way}
+                        onChange={handleInputChange}
+                        className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
+                      >
+                        <option value="website">Website</option>
+                        <option value="search_engine">Search Engine</option>
+                        <option value="social_media">Social Media</option>
+                        <option value="referral">Referral</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
                   {/* Message Field */}
                   <div>
                     <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
@@ -147,9 +231,10 @@ export default function ContactSection() {
                   <div className="pt-1 sm:pt-2">
                     <button
                       type="submit"
-                      className="w-full px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm md:text-base text-white transition-all duration-300 transform hover:shadow-xl hover:scale-105 active:scale-95 bg-gradient-to-r from-[#212C5F] to-[#1A2250] hover:from-[#1A2250] hover:to-[#15182F]"
+                      disabled={submitting}
+                      className="w-full px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm md:text-base text-white transition-all duration-300 transform hover:shadow-xl hover:scale-105 active:scale-95 bg-gradient-to-r from-[#212C5F] to-[#1A2250] hover:from-[#1A2250] hover:to-[#15182F] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
                     >
-                      Send Enquiry →
+                      {submitting ? "Sending..." : "Send Enquiry →"}
                     </button>
                   </div>
 
@@ -251,6 +336,84 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Submission Overlay */}
+      {submitStatus !== "idle" && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
+          <div className="relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 max-w-sm mx-4 shadow-2xl animate-in fade-in zoom-in-95 duration-300">
+            {/* Loading State */}
+            {submitStatus === "loading" && (
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative w-16 h-16">
+                  <div className="absolute inset-0 rounded-full border-4 border-gray-200" />
+                  <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#212C5F] border-r-[#212C5F] animate-spin" />
+                </div>
+                <div className="text-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Sending Your Message...</h3>
+                  <p className="text-sm text-gray-600">Please wait while we process your request</p>
+                </div>
+              </div>
+            )}
+
+            {/* Success State */}
+            {submitStatus === "success" && (
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative w-16 h-16 flex items-center justify-center">
+                  <div className="absolute inset-0 rounded-full bg-green-100 opacity-20" />
+                  <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Message Sent Successfully!</h3>
+                  <p className="text-sm text-gray-600">{submitMessage}</p>
+                </div>
+
+                {/* Success Progress Bar */}
+                <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mt-4">
+                  <div className="h-full bg-gradient-to-r from-green-400 to-green-600 rounded-full animate-pulse" style={{
+                    animation: "progress-bar 3s ease-out forwards"
+                  }} />
+                </div>
+              </div>
+            )}
+
+            {/* Error State */}
+            {submitStatus === "error" && (
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative w-16 h-16 flex items-center justify-center">
+                  <div className="absolute inset-0 rounded-full bg-red-100 opacity-20" />
+                  <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Something Went Wrong</h3>
+                  <p className="text-sm text-gray-600 mb-4">{submitMessage}</p>
+                </div>
+
+                <button
+                  onClick={() => setSubmitStatus("idle")}
+                  className="w-full px-4 py-2 bg-gradient-to-r from-[#212C5F] to-[#1A2250] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                >
+                  Try Again
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      <style jsx>{`
+        @keyframes progress-bar {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 }

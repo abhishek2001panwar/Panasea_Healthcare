@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function TestimonialsSection() {
   return (
-    <section className="border-b relative py-10 flex flex-col items-center justify-center overflow-hidden">
+    <section className="border-b relative py-1 flex flex-col items-center justify-center overflow-hidden">
       {/* Modern gradient background */}
       
       {/* Decorative floating elements */}

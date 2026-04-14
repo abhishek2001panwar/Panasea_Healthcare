@@ -79,7 +79,7 @@ export function CollectionSection() {
 
       <div className="relative z-10">
         {/* Premium Section Header */}
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24 max-w-7xl mx-auto pt-8 sm:pt-12 md:pt-16">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 mb-12 sm:mb-16 md:mb-20 lg:mb-24 max-w-7xl mx-auto ">
           <div className="space-y-4 sm:space-y-5 md:space-y-6">
             {/* Badge */}
             <div className="inline-flex items-center">

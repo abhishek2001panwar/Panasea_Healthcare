@@ -27,47 +27,47 @@ const features: ProductCategory[] = [
   {
     name: "Antibiotics & Anti-infectives",
     description: "Complete range for bacterial infections",
-    image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEFudGliaW90aWNzJTIwJTI2JTIwQW50aS1pbmZlY3RpdmVzfGVufDB8fDB8fHww",
+    image: "/products/pharma1.png",
   },
   {
     name: "Cardiovascular Medicines",
     description: "Hypertension, heart disease management",
-    image: "https://images.unsplash.com/photo-1631980838946-755ba8443ab7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fENhcmRpb3Zhc2N1bGFyJTIwTWVkaWNpbmVzfGVufDB8fDB8fHww",
+    image: "/products/pharma2.png",
   },
   {
     name: "Diabetes Care",
     description: "Insulin, oral antidiabetics, glucose monitoring",
-    image: "https://plus.unsplash.com/premium_photo-1680221453924-fcc37377f18e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RGlhYmV0ZXMlMjBDYXJlfGVufDB8fDB8fHww",
+    image: "/products/pharma3.png",
   },
   {
     name: "Pain Management",
     description: "Analgesics for acute and chronic pain",
-    image: "https://plus.unsplash.com/premium_photo-1661779581951-eb3a2fe942bb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fFBhaW4lMjBNYW5hZ2VtZW50fGVufDB8fDB8fHww",
+    image: "/products/pharma4.png",
   },
   {
     name: "Nutraceuticals",
     description: "Vitamins, minerals, and wellness supplements",
-    image: "https://plus.unsplash.com/premium_photo-1670981099502-fb0ea624fa9a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fE51dHJhY2V1dGljYWxzfGVufDB8fDB8fHww",
+    image: "/products/pharma5.png",
   },
   {
     name: "Respiratory Medicines",
     description: "Inhalers, bronchodilators, asthma treatments",
-    image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UmVzcGlyYXRvcnklMjBNZWRpY2luZXN8ZW58MHx8MHx8fDA%3D",
+    image: "/products/pharma6.png",
   },
   {
     name: "Oncology Drugs",
     description: "Chemotherapy and supportive care medications",
-    image: "https://images.unsplash.com/photo-1607874963930-2edecc67a25a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fE9uY29sb2d5JTIwRHJ1Z3N8ZW58MHx8MHx8fDA%3D",
+    image: "/products/pharma7.png",
   },
   {
     name: "Pediatric Range",
     description: "Child-safe formulations and supplements",
-    image: "https://images.unsplash.com/photo-1708687045030-26702e62fc65?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGVkaWF0cmljJTIwUmFuZ2V8ZW58MHx8MHx8fDA%3D",
+    image: "/products/pharma8.png",
   },
   {
     name: "Dermatology Products",
     description: "Topical treatments, anti-fungal creams",
-    image: "https://images.unsplash.com/photo-1618480066690-8457ab2b766e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RGVybWF0b2xvZ3klMjBQcm9kdWN0c3xlbnwwfHwwfHx8MA%3D%3D",
+    image: "/products/pharma9.png",
   },
 ]
   },

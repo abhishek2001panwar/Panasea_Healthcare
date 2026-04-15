@@ -120,12 +120,7 @@ export function PhilosophySection() {
             </div>
 
             {/* Scroll Progress Indicator */}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-200">
-              <div 
-                className="h-full bg-[#212C5F]" 
-                style={{ width: `${scrollProgress * 100}%`, transition: "width 0.1s ease-out" }}
-              />
-            </div>
+           
           </div>
         </div>
       </div>

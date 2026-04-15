@@ -8,6 +8,7 @@ export function PhilosophySection() {
   const [alpineTranslateX, setAlpineTranslateX] = useState(-100);
   const [forestTranslateX, setForestTranslateX] = useState(100);
   const [titleOpacity, setTitleOpacity] = useState(1);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const rafRef = useRef<number | null>(null);
 
   const updateTransforms = useCallback(() => {
@@ -30,6 +31,9 @@ export function PhilosophySection() {
 
     // Title fades out as blocks come together
     setTitleOpacity(1 - progress);
+
+    // Update scroll progress for indicator
+    setScrollProgress(progress);
   }, []);
 
   useEffect(() => {
@@ -113,6 +117,14 @@ export function PhilosophySection() {
                   className="object-cover"
                 />
               </div>
+            </div>
+
+            {/* Scroll Progress Indicator */}
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-200">
+              <div 
+                className="h-full bg-[#212C5F]" 
+                style={{ width: `${scrollProgress * 100}%`, transition: "width 0.1s ease-out" }}
+              />
             </div>
           </div>
         </div>

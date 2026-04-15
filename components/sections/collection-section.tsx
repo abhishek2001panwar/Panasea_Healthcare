@@ -192,16 +192,7 @@ export function CollectionSection() {
         </div>
 
         {/* Quote & Stats Section */}
-        <div className="border-t border-gray-200/50 mt-5 pt-5 pb-8 ">
-          <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
-            {/* Premium Quote */}
-            <div className="text-center">
-              <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-light text-gray-900 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed max-w-3xl mx-auto italic">
-                "Access to quality medicines and medical supplies is not a luxury - it's a fundamental pillar of healthcare delivery."
-              </p>
-            </div>
-          </div>
-        </div>
+       
       </div>
 
       {/* Premium Scroll Animations */}

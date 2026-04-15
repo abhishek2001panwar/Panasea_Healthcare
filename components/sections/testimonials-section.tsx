@@ -1,79 +1,135 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function TestimonialsSection() {
   return (
-    <section className="border-b relative py-1 flex flex-col items-center justify-center overflow-hidden">
-      {/* Modern gradient background */}
-      
+    <section className="relative w-full py-10 flex flex-col items-center justify-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 w-full h-full">
+        {/* Healthcare Background Image */}
+        <Image
+          src="https://media.istockphoto.com/id/1413600685/photo/focused-serious-medical-scientists-analyzing-research-scans-on-a-computer-working-late-in-the.jpg?s=612x612&w=0&k=20&c=qu3PN_aGTpb8Bb9EjMrPZQt-PjRUXtJdOyAXz3lTMAc="
+          alt="Healthcare background"
+          fill
+          className="object-cover object-center "
+          priority
+        />
+
+        {/* Premium Multi-Layer Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/40 to-black/60" />
+        
+        {/* Gradient Vignette */}
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/20 to-black/50" style={{
+          backgroundImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%)',
+        }} />
+      </div>
+
       {/* Decorative floating elements */}
-      <div className="absolute top-10 left-5 w-72 h-72 rounded-full blur-3xl" style={{ background: '#212C5F10', pointerEvents: 'none' }} />
-      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl" style={{ background: '#212C5F08', pointerEvents: 'none' }} />
+      <motion.div
+        className="absolute top-10 left-5 w-72 h-72 rounded-full blur-3xl"
+        style={{ background: '#212C5F10', pointerEvents: 'none' }}
+        animate={{
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl"
+        style={{ background: '#212C5F08', pointerEvents: 'none' }}
+        animate={{
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+      />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12">
         {/* Header Badge */}
-        <div className="flex justify-center mb-6">
-          <span className="text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full" style={{ background: '#212C5F15', color: '#212C5F' }}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-6"
+        >
+          <span
+            className="text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full backdrop-blur-sm border border-white/30"
+            style={{ background: 'rgba(33, 44, 95, 0.3)', color: '#fff' }}
+          >
             Take the Next Step
           </span>
-        </div>
+        </motion.div>
 
         {/* Main Heading */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-gray-900 text-center">
-          Ready to Strengthen Your 
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-center text-white"
+        >
+          Ready to Strengthen Your
           <br />
-          <span style={{ background: 'linear-gradient(120deg, #212C5F 0%, #4A5B9F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          <motion.span
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="inline-block bg-white bg-clip-text text-transparent"
+          >
             Supply Chain?
-          </span>
-        </h2>
+          </motion.span>
+        </motion.h2>
 
         {/* Subtext */}
-        <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-center mb-12 font-light">
-          Join hundreds of hospitals, pharmacies, and distributors who trust <span className="font-semibold text-gray-900">Panasea Healthcare</span> for consistent, quality-assured medical supplies. Let's build a more reliable healthcare ecosystem together.
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-gray-100 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-center mb-12 font-light"
+        >
+          Join hundreds of hospitals, pharmacies, and distributors who trust{" "}
+          <span className="font-semibold text-white">Panasea Healthcare</span> for
+          consistent, quality-assured medical supplies. Let's build a more reliable
+          healthcare ecosystem together.
+        </motion.p>
 
         {/* Primary CTA Buttons */}
-        <a href="/#contact" className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <button 
-            className="group relative px-8 py-4 rounded-xl font-semibold text-white text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#212C5F]/40 hover:-translate-y-1"
-            style={{ background: 'linear-gradient(135deg, #212C5F 0%, #1A2250 100%)' }}
+        <motion.a
+          href="/#contact"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.98 }}
+            className="group relative px-8 py-4 rounded-xl font-semibold text-white text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#212C5F]/50 backdrop-blur-sm"
+            style={{
+              background: "linear-gradient(135deg, #212C5F 0%, #4A5B9F 100%)",
+              border: "2px solid rgba(255, 255, 255, 0.2)",
+            }}
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
-               Get a Quote Today
+              Get a Quote Today
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:translate-x-full transition-transform duration-500" />
-          </button>
-
-         
-        </a>
-
-        {/* Email Newsletter Section */}
-        {/* <div className="mt-16 pt-12 border-t border-gray-200/50">
-          <p className="text-sm uppercase tracking-widest text-gray-600 mb-6 text-center font-semibold">
-            Get the latest updates
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 justify-center items-stretch max-w-2xl mx-auto">
-            <div className="flex-1 relative group">
-              <input
-                type="email"
-                required
-                className="w-full px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 border-2 border-gray-200 transition-all duration-300 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-offset-0"
-                style={{ focusBorderColor: '#212C5F', focusRingColor: '#212C5F33' }}
-                placeholder="Enter your email..."
-              />
-              <div className="absolute inset-0 rounded-xl opacity-0 pointer-events-none transition-opacity duration-300 group-focus-within:opacity-100" style={{ background: '#212C5F08', boxShadow: '0 0 20px #212C5F20' }} />
-            </div>
-            <button
-              type="submit"
-              className="sm:px-8 px-6 py-4 rounded-xl font-semibold text-white text-lg whitespace-nowrap transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
-              style={{ background: 'linear-gradient(135deg, #212C5F 0%, #1A2250 100%)' }}
-            >
-              Subscribe 
-            </button>
-          </form>
-          <p className="text-xs text-gray-500 text-center mt-4">No spam, just industry-leading insights delivered weekly.</p>
-        </div> */}
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-500" />
+          </motion.button>
+        </motion.a>
       </div>
     </section>
   );

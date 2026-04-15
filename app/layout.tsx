@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import { NavbarNew } from "@/components/nav";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <Navbar />
+        <NavbarNew />
         {children}
         <Analytics />
       </body>

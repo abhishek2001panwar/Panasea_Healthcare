@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { addContactMessage } from "@/lib/supabase";
 
 export default function ContactSection() {
@@ -17,7 +18,7 @@ export default function ContactSection() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -70,137 +71,206 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative min-h-screen bg-gradient-to-b from-white via-[#212C5F]/5 to-white overflow-hidden flex flex-col">
-      {/* Decorative Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-[#212C5F]/10 rounded-full blur-3xl opacity-40" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 sm:w-96 sm:h-96 bg-[#212C5F]/5 rounded-full blur-3xl opacity-30" />
-      </div>
+    <section id="contact" className="relative py-10 bg-white overflow-hidden flex flex-col">
+      {/* Premium Animated Background Elements */}
+        <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), 
+                           linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute -top-40 -right-40 w-80 h-80 bg-linear-to-br from-[#212C5F]/20 to-[#4A5B9F]/10 rounded-full blur-3xl"
+          animate={{
+            y: [0, 20, 0],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-linear-to-tr from-[#212C5F]/15 to-[#4A5B9F]/5 rounded-full blur-3xl"
+          animate={{
+            y: [0, -20, 0],
+            x: [0, -10, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+      </div> */}
 
       <div className="relative z-10 flex flex-col h-full">
         {/* Header Section */}
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 pt-8  pb-6 sm:pb-8 md:pb-10 max-w-7xl mx-auto w-full">
-          <div className="space-y-2 sm:space-y-3 max-w-2xl">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 pt-4 pb-8 md:pb-12 max-w-7xl mx-auto w-full text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-1"
+          >
             {/* Badge */}
-            <div className="inline-flex items-center">
-              <div className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#E8EAFD] border border-[#212C5F]/30">
-                <div className="w-2 h-2 bg-[#212C5F] rounded-full animate-pulse" />
-                <p className="text-[0.65rem] sm:text-xs font-bold uppercase tracking-widest text-[#212C5F]">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center justify-center mx-auto"
+            >
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full ">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#212C5F]">
                   Get In Touch
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Heading */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-              Contact Us for Guidance, <br className="hidden sm:block" />
-              Support, and Solutions
-            </h2>
-          </div>
+            {/* <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+            >
+              Ready to Partner with <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#212C5F] to-[#4A5B9F]">
+                Panasea Healthcare?
+              </span>
+            </motion.h2> */}
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-gray-600 text-lg max-w-2xl mx-auto font-light"
+            >
+              Let's discuss how we can strengthen your supply chain
+            </motion.p>
+          </motion.div>
         </div>
 
-        {/* Main Content Grid - Form Left, Info+Map Right */}
-        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-6 sm:pb-8 md:pb-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
-            
-            {/* LEFT: Contact Form */}
-            <div className="w-full">
-              <div className="p-6 sm:p-7 md:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-gray-200/50 bg-gradient-to-br from-white/70 via-white/60 to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-4 sm:mb-5 md:mb-6">Send us a Message</h3>
-                
-                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-5">
-                  {/* Name Field */}
-                  <div>
-                    <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
-                      placeholder="Dr. Anita Sharma"
-                    />
-                  </div>
-
-                  {/* Phone & Email Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-                    <div>
-                      <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
-                        Phone *
+        {/* Main Content Grid */}
+        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-6 sm:pb-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8">
+            {/* LEFT: Contact Form - Premium Compact */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="lg:col-span-3 w-full"
+            >
+              <div className="relative z-10">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5 flex items-center gap-3">
+                    <span className="w-1 h-8 bg-linear-to-b from-[#212C5F] to-[#4A5B9F] rounded-full" />
+                    Send us a Message
+                  </h3>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                    {/* Name Field */}
+                    <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+                      <label className="block text-xs font-bold text-gray-600 uppercase mb-1.5 tracking-widest">
+                        Name *
                       </label>
                       <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
+                        type="text"
+                        name="name"
+                        value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
-                        placeholder="+91 98765 43210"
+                        className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-300 bg-white/90 text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20"
+                        placeholder="Dr. Anita Sharma"
                       />
-                    </div>
-                    <div>
-                      <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
-                        placeholder="you@hospital.com"
-                      />
-                    </div>
-                  </div>
+                    </motion.div>
 
-                  {/* Organization Field */}
-                  <div>
-                    <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
-                      Organization *
-                    </label>
-                    <input
-                      type="text"
-                      name="organization"
-                      value={formData.organization}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
-                      placeholder="Apollo Hospital..."
-                    />
-                  </div>
-
-                  {/* Type & Way Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
-                    <div>
-                      <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
-                        Inquiry Type
-                      </label>
-                      <select
-                        name="type"
-                        value={formData.type}
-                        onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
-                      >
-                        <option value="">Select Type</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="bulk_order">Bulk Order</option>
-                        <option value="support">Support</option>
-                        <option value="general">General Inquiry</option>
-                      </select>
+                    {/* Phone & Email Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+                        <label className="block text-xs font-bold text-gray-600 uppercase mb-1.5 tracking-widest">
+                          Phone *
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-300 bg-white/90 text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20"
+                          placeholder="+91 98765 43210"
+                        />
+                      </motion.div>
+                      <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+                        <label className="block text-xs font-bold text-gray-600 uppercase mb-1.5 tracking-widest">
+                          Email *
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-300 bg-white/90 text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20"
+                          placeholder="you@hospital.com"
+                        />
+                      </motion.div>
                     </div>
-                    <div>
-                      <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
+
+                    {/* Organization & Type Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+                        <label className="block text-xs font-bold text-gray-600 uppercase mb-1.5 tracking-widest">
+                          Organization *
+                        </label>
+                        <input
+                          type="text"
+                          name="organization"
+                          value={formData.organization}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-300 bg-white/90 text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20"
+                          placeholder="Apollo Hospital..."
+                        />
+                      </motion.div>
+                      <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+                        <label className="block text-xs font-bold text-gray-600 uppercase mb-1.5 tracking-widest">
+                          Inquiry Type
+                        </label>
+                        <select
+                          name="type"
+                          value={formData.type}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-300 bg-white/90 text-gray-900 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20"
+                        >
+                          <option value="">Select Type</option>
+                          <option value="partnership">Partnership</option>
+                          <option value="bulk_order">Bulk Order</option>
+                          <option value="support">Support</option>
+                          <option value="general">General Inquiry</option>
+                        </select>
+                      </motion.div>
+                    </div>
+
+                    {/* How did you find us */}
+                    <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+                      <label className="block text-xs font-bold text-gray-600 uppercase mb-1.5 tracking-widest">
                         How did you find us?
                       </label>
                       <select
                         name="way"
                         value={formData.way}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400"
+                        className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-300 bg-white/90 text-gray-900 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20"
                       >
                         <option value="website">Website</option>
                         <option value="search_engine">Search Engine</option>
@@ -208,119 +278,105 @@ export default function ContactSection() {
                         <option value="referral">Referral</option>
                         <option value="other">Other</option>
                       </select>
-                    </div>
-                  </div>
+                    </motion.div>
 
-                  {/* Message Field */}
-                  <div>
-                    <label className="block text-[0.6rem] sm:text-[0.65rem] font-bold text-gray-600 uppercase mb-1.5 sm:mb-2 tracking-widest">
-                      Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={3}
-                      className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl border border-gray-300 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-xs sm:text-sm md:text-base transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 hover:border-gray-400 resize-none"
-                      placeholder="Tell us what you're looking for..."
-                    />
-                  </div>
+                    {/* Message Field */}
+                    <motion.div whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+                      <label className="block text-xs font-bold text-gray-600 uppercase mb-1.5 tracking-widest">
+                        Message *
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                        rows={3}
+                        className="w-full px-4 py-2.5 md:py-3 rounded-lg border border-gray-300 bg-white/90 text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/20 resize-none"
+                        placeholder="Tell us what you're looking for..."
+                      />
+                    </motion.div>
 
-                  {/* Submit Button */}
-                  <div className="pt-1 sm:pt-2">
-                    <button
+                    {/* Submit Button - Premium */}
+                    <motion.button
                       type="submit"
                       disabled={submitting}
-                      className="w-full px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm md:text-base text-white transition-all duration-300 transform hover:shadow-xl hover:scale-105 active:scale-95 bg-gradient-to-r from-[#212C5F] to-[#1A2250] hover:from-[#1A2250] hover:to-[#15182F] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full py-3 rounded-lg font-semibold text-white text-sm transition-all duration-300 bg-linear-to-r from-[#212C5F] to-[#4A5B9F] hover:from-[#1A2250] hover:to-[#3a4a8f] shadow-lg hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {submitting ? "Sending..." : "Send Enquiry →"}
-                    </button>
-                  </div>
+                    </motion.button>
 
-                  <p className="text-[0.55rem] sm:text-[0.6rem] md:text-xs text-gray-500 text-center pt-1">
-                    We'll get back to you within 24 hours
-                  </p>
-                </form>
-              </div>
-            </div>
-
-            {/* RIGHT: Info Cards (Top) & Map (Bottom) */}
-            <div className="w-full flex flex-col gap-6 sm:gap-8 md:gap-10">
-              {/* Contact Info Cards - Top */}
-              <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                {/* Phone */}
-                <div className="group p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-gray-200/50 bg-gradient-to-br from-white/60 to-white/40 backdrop-blur-sm hover:border-[#212C5F]/20 hover:bg-gradient-to-br hover:from-[#212C5F]/5 hover:to-white/50 transition-all duration-300">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center" style={{ background: '#212C5F15' }}>
-                      <svg width="1rem" height="1rem" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ color: '#212C5F' }}>
-                        <path d="M22 16.92V19a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h2.09a2 2 0 0 1 2 1.72c.13 1.05.37 2.07.72 3.06a2 2 0 0 1-.45 2.11l-.27.27a16 16 0 0 0 6.29 6.29l.27-.27a2 2 0 0 1 2.11-.45c.99.35 2.01.59 3.06.72A2 2 0 0 1 22 16.92z"></path>
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[0.55rem] sm:text-[0.6rem] font-bold text-gray-500 uppercase tracking-widest">Phone</div>
-                      <a href="tel:+918765432100" className="text-xs sm:text-sm font-semibold text-gray-900 group-hover:text-[#212C5F] transition-colors truncate">
-                        +91 876 543 2100
-                      </a>
-                    </div>
-                  </div>
+                    <p className="text-xs text-gray-500 text-center pt-1">
+                      We'll get back to you within 24 hours
+                    </p>
+                  </form>
                 </div>
+            </motion.div>
 
-                {/* Email */}
-                <div className="group p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-gray-200/50 bg-gradient-to-br from-white/60 to-white/40 backdrop-blur-sm hover:border-[#212C5F]/20 hover:bg-gradient-to-br hover:from-[#212C5F]/5 hover:to-white/50 transition-all duration-300">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center" style={{ background: '#212C5F15' }}>
-                      <svg width="1rem" height="1rem" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ color: '#212C5F' }}>
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                        <polyline points="22,6 12,13 2,6" fill="none" />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[0.55rem] sm:text-[0.6rem] font-bold text-gray-500 uppercase tracking-widest">Email</div>
-                      <a href="mailto:panaseahealthcare@gmail.com" className="text-xs sm:text-sm font-semibold text-gray-900 group-hover:text-[#212C5F] transition-colors truncate">
-                        panasea@gmail.com
-                      </a>
-                    </div>
+            {/* RIGHT: Info Cards - Premium Compact */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="lg:col-span-2 w-full flex flex-col gap-4"
+            >
+              {/* Contact Info Grid - Compact Colorful */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* Phone - Blue */}
+                <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }} className="group relative p-5 rounded-xl border border-blue-200/50 bg-gradient-to-br from-blue-50 to-blue-50/30 hover:border-blue-300/80 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-linear-to-br from-[#212C5F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-blue-100/30 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform" />
+                  <div className="relative z-10">
+                    <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Phone</p>
+                    <a href="tel:+918765432100" className="text-sm font-bold text-gray-900 hover:text-[#212C5F] transition-colors">
+                      +91 876 543 2100
+                    </a>
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Address */}
-                <div className="group p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-gray-200/50 bg-gradient-to-br from-white/60 to-white/40 backdrop-blur-sm hover:border-[#212C5F]/20 hover:bg-gradient-to-br hover:from-[#212C5F]/5 hover:to-white/50 transition-all duration-300">
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mt-0.5" style={{ background: '#212C5F15' }}>
-                      <svg width="1rem" height="1rem" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ color: '#212C5F' }}>
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" fill="currentColor" />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[0.55rem] sm:text-[0.6rem] font-bold text-gray-500 uppercase tracking-widest">Address</div>
-                      <p className="text-xs sm:text-sm font-semibold text-gray-900 line-clamp-2">
-                        177 Giant Hill Road, South City
-                      </p>
-                    </div>
+                {/* Email - Purple */}
+                <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }} className="group relative p-5 rounded-xl border border-purple-200/50 bg-gradient-to-br from-purple-50 to-purple-50/30 hover:border-purple-300/80 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-linear-to-br from-[#4A5B9F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-purple-100/30 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform" />
+                  <div className="relative z-10">
+                    <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">Email</p>
+                    <a href="mailto:panaseahealthcare@gmail.com" className="text-sm font-bold text-gray-900 hover:text-[#212C5F] transition-colors truncate">
+                      panasea@gmail.com
+                    </a>
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Support */}
-                <div className="group p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-gray-200/50 bg-gradient-to-br from-white/60 to-white/40 backdrop-blur-sm hover:border-[#212C5F]/20 hover:bg-gradient-to-br hover:from-[#212C5F]/5 hover:to-white/50 transition-all duration-300">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center" style={{ background: '#212C5F15' }}>
-                      <svg width="1rem" height="1rem" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ color: '#212C5F' }}>
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12,6 12,12 16,14" fill="none" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="text-[0.55rem] sm:text-[0.6rem] font-bold text-gray-500 uppercase tracking-widest">Support</div>
-                      <p className="text-xs sm:text-sm font-semibold text-gray-900">24/7 Available</p>
-                    </div>
+                {/* Address - Green */}
+                <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }} className="group relative p-5 rounded-xl border border-green-200/50 bg-gradient-to-br from-green-50 to-green-50/30 hover:border-green-300/80 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-green-100/30 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform" />
+                  <div className="relative z-10">
+                    <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">Address</p>
+                    <p className="text-sm font-bold text-gray-900">
+                      177 Giant Hill Road, South City
+                    </p>
                   </div>
-                </div>
+                </motion.div>
+
+                {/* Support - Amber */}
+                <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }} className="group relative p-5 rounded-xl border border-amber-200/50 bg-gradient-to-br from-amber-50 to-amber-50/30 hover:border-amber-300/80 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="absolute inset-0 bg-linear-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-amber-100/30 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform" />
+                  <div className="relative z-10">
+                    <p className="text-xs font-bold text-amber-600 uppercase tracking-widest mb-2">Support</p>
+                    <p className="text-sm font-bold text-gray-900">24/7 Available</p>
+                  </div>
+                </motion.div>
               </div>
 
-              {/* Map Container - Bottom */}
-              <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200/50 shadow-xl group">
+              {/* Map Container - Compact */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full h-56 md:h-64 rounded-xl border border-gray-200/60 overflow-hidden shadow-lg hover:shadow-xl group"
+              >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d-122.41941592346934!3d37.77492957102104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4701%3A0xb10ed6d9b5050b69!2s177%20Giant%20Hill%20Road!5e0!3m2!1sen!2sus!4v1234567890"
                   width="100%"
@@ -331,8 +387,8 @@ export default function ContactSection() {
                   referrerPolicy="no-referrer-when-downgrade"
                   className="group-hover:scale-105 transition-transform duration-700"
                 ></iframe>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

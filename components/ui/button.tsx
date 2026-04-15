@@ -41,10 +41,13 @@ function Button({
   variant,
   size,
   asChild = false,
+  onClick,
   ...props
 }: React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
+    onClick?: () => void
+
   }) {
   const Comp = asChild ? Slot : 'button'
 
@@ -53,6 +56,8 @@ function Button({
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
+        onClick={onClick}
+
     />
   )
 }

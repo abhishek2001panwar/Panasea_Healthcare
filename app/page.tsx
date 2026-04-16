@@ -26,7 +26,7 @@ export default function Home() {
       {/* <HeroSection /> */}
       <Tryhero />
      {/* <Hero /> */}
-      <PhilosophySection />
+      {/* <PhilosophySection /> */}
       {/* <HeroSections /> */}
 {/* <PanaseaHealthcareHero /> */}
       {/* <Hero /> */}
@@ -41,7 +41,7 @@ export default function Home() {
       {/* <GallerySection /> */}
       {/* <CollectionSection /> */}
       <WhyChooseUs />
-      <EditorialSection />
+      {/* <EditorialSection /> */}
       {/* <TestimonialsSection /> */}
       <ContactSection />
       <FooterSection />

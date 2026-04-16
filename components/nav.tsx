@@ -46,6 +46,9 @@ export function NavbarNew() {
                 alt="Panasea Logo"
                 width={160}
                 height={30}
+                onClick={()=>{
+                    router.push("/")
+                }}
                 className="object-contain"
                 />
          

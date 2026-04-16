@@ -126,23 +126,7 @@ export function PhilosophySection() {
       </div>
 
       {/* Description */}
-      <div className="px-6 py-12 md:px-12 md:py-16 lg:px-20 lg:py-20 lg:pb-10">
-        <div className="text-center">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-5">
-            About us
-          </p>
-          <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            A Complete Portfolio
-            <br />
-            of Medical Supplies
-          </h2>
-          {/* <p className="mt-8 leading-relaxed text-muted-foreground  text-xl text-center">
-            Panasea Healthcare is a premier pharmaceutical and medical supplies
-            distributor, connecting certified manufacturers with healthcare
-            providers who depend on reliable, uninterrupted supply chains.
-          </p> */}
-        </div>
-      </div>
+     
     </section>
   );
 }

@@ -27,47 +27,47 @@ const features: ProductCategory[] = [
   {
     name: "Antibiotics & Anti-infectives",
     description: "Complete range for bacterial infections",
-    image: "/products/pharma1.png",
+    image: "https://media.istockphoto.com/id/489216000/photo/pills-and-capsules-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=XPHrLNuEZ9KD6U6JHKIjyJoRfOzN61AkdI7X-NwdVhI=",
   },
   {
     name: "Cardiovascular Medicines",
     description: "Hypertension, heart disease management",
-    image: "/products/pharma2.png",
+    image: "https://media.istockphoto.com/id/173194744/photo/close-up-of-a-heartbeat-on-a-machine.jpg?s=612x612&w=0&k=20&c=dvoctbtKaRICwJemc_emWRnl7ttG887qEAhQZ2iuV9M=",
   },
   {
     name: "Diabetes Care",
     description: "Insulin, oral antidiabetics, glucose monitoring",
-    image: "/products/pharma3.png",
+    image: "https://media.istockphoto.com/id/491965869/photo/woman-doing-blood-sugar-test.jpg?s=612x612&w=0&k=20&c=gC9xmTjGtB7M9HbCv1_bRkMOsR_dmcycDEH5ioDEp8Q=",
   },
   {
     name: "Pain Management",
     description: "Analgesics for acute and chronic pain",
-    image: "/products/pharma4.png",
+    image: "https://media.istockphoto.com/id/516084167/photo/medication.jpg?s=612x612&w=0&k=20&c=PmxNRuvSEGJWGlw2ctPWPL2io0heHisooHa36LpsEjo=",
   },
   {
     name: "Nutraceuticals",
     description: "Vitamins, minerals, and wellness supplements",
-    image: "/products/pharma5.png",
+    image: "https://media.istockphoto.com/id/464469702/photo/pills-and-multivitamins.jpg?s=612x612&w=0&k=20&c=Kf2UcboSMLrhE0P8GqrGbi0eHbaZ1EaGKp0GWqgpmKQ=",
   },
   {
     name: "Respiratory Medicines",
     description: "Inhalers, bronchodilators, asthma treatments",
-    image: "/products/pharma6.png",
+    image: "https://media.istockphoto.com/id/624742296/photo/cartridge-inhaler-and-chamber-and-mask-in-room-front-view.jpg?s=612x612&w=0&k=20&c=x3B9yPM27BJ0SvuHMy4dSwfEagLcBYRkz23lHWsjIYA=",
   },
   {
     name: "Oncology Drugs",
     description: "Chemotherapy and supportive care medications",
-    image: "/products/pharma7.png",
+    image: "https://media.istockphoto.com/id/477013712/photo/scientist-using-protective-robber-gloves-for-handling-substances-and-experiments.jpg?s=612x612&w=0&k=20&c=y8qCj3Ok5JwvNz0AgHPXuujoNpnUapzEZ7NkOkyxHqA=",
   },
   {
     name: "Pediatric Range",
     description: "Child-safe formulations and supplements",
-    image: "/products/pharma8.png",
+    image: "https://media.istockphoto.com/id/2063130291/photo/consultation-with-a-dermatologist.jpg?s=612x612&w=0&k=20&c=q-PuLHk7qHfRIi9tvR3xzqjV2bZ5kuFWml2ilnrc3gY=",
   },
   {
     name: "Dermatology Products",
     description: "Topical treatments, anti-fungal creams",
-    image: "/products/pharma9.png",
+    image: "https://media.istockphoto.com/id/914504658/photo/the-scientist-dermatologist-testing-the-organic-natural-product-in-the-laboratory-research-and.jpg?s=612x612&w=0&k=20&c=WHvQ2T3RTLovLRkwk_athtiFj8i4tE3kLN-2ZdLccdU=",
   },
 ]
   },
@@ -99,7 +99,7 @@ const features: ProductCategory[] = [
   {
     name: "Surgical Gowns & Drapes",
     description: "Sterile apparel for safe surgical environments.",
-    image: "https://plus.unsplash.com/premium_photo-1664478424549-7592c541d032?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8U3VyZ2ljYWwlMjBHb3ducyUyMCUyNiUyMERyYXBlc3xlbnwwfHwwfHx8MA%3D%3D",
+    image: "https://media.istockphoto.com/id/2261444188/photo/surgeon-dons-surgical-attire-a-healthcare-worker-ties-their-surgical-gown-before-entering-the.jpg?s=612x612&w=0&k=20&c=Z9m5v5olAklQ5m3kgpkHxLm4qRaXyvaHlO3IMI8qzRQ=",
   },
   {
     name: "IV Cannulas & Infusion Sets",
@@ -119,7 +119,7 @@ const features: ProductCategory[] = [
   {
     name: "Alcohol Swabs & Antiseptics",
     description: "Effective infection control and skin preparation products.",
-    image: "https://images.unsplash.com/photo-1690306815613-f839b74af330?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fEFsY29ob2wlMjBTd2FicyUyMCUyNiUyMEFudGlzZXB0aWNzfGVufDB8fDB8fHww",
+    image: "https://media.istockphoto.com/id/2264137809/photo/asian-male-doctor-cleans-and-treats-a-female-patient%C3%A2s-arm-wound-with-antiseptic-before.jpg?s=612x612&w=0&k=20&c=psqFqvyyda52xEVIJOftgzUOxnYA3801YRLidR6zHrc=",
   },
 ]
   },

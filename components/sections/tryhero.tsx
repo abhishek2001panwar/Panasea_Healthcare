@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import  Link  from "next/link";
 
 const NAV_LINKS = [
   { label: "PRODUCTS", href: "#" },
@@ -13,7 +14,58 @@ export default function Tryhero() {
   const { scrollY } = useScroll();
   const backgroundY = useTransform(scrollY, [0, 1000], [0, 400]);
 
-  const paragraph = "From pharmaceuticals and surgical equipment to diagnostics and medical disposables we deliver quality-assured medical products to hospitals, clinics, and pharmacies across India and beyond.";
+  const [productsCount, setProductsCount] = useState(0);
+  const [deliveryRate, setDeliveryRate] = useState(0);
+
+  useEffect(() => {
+    // Products counter animation (0 to 5000)
+    let productsInterval: NodeJS.Timeout;
+    let currentProducts = 0;
+    const productsTarget = 5000;
+    const productsDuration = 1500;
+    const productsStep = productsTarget / (productsDuration / 50);
+
+    const animateProducts = () => {
+      currentProducts += productsStep;
+      if (currentProducts >= productsTarget) {
+        setProductsCount(productsTarget);
+      } else {
+        setProductsCount(Math.floor(currentProducts));
+        productsInterval = setTimeout(animateProducts, 50);
+      }
+    };
+
+    // Delivery rate counter animation (0 to 98)
+    let deliveryInterval: NodeJS.Timeout;
+    let currentDelivery = 0;
+    const deliveryTarget = 98;
+    const deliveryDuration = 1500;
+    const deliveryStep = deliveryTarget / (deliveryDuration / 50);
+
+    const animateDelivery = () => {
+      currentDelivery += deliveryStep;
+      if (currentDelivery >= deliveryTarget) {
+        setDeliveryRate(deliveryTarget);
+      } else {
+        setDeliveryRate(Math.floor(currentDelivery));
+        deliveryInterval = setTimeout(animateDelivery, 50);
+      }
+    };
+
+    // Start animations after a delay
+    setTimeout(() => {
+      animateProducts();
+      animateDelivery();
+    }, 1200);
+
+    return () => {
+      clearTimeout(productsInterval);
+      clearTimeout(deliveryInterval);
+    };
+  }, []);
+
+  const paragraph =
+    "From pharmaceuticals and surgical equipment to diagnostics and medical disposables we deliver quality-assured medical products to hospitals, clinics, and pharmacies across India and beyond.";
   const words = paragraph.split(" ");
 
   const containerVariants = {
@@ -43,27 +95,27 @@ export default function Tryhero() {
     <div className="relative w-full h-screen text-white overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <motion.img
-        src="https://media.istockphoto.com/id/2149711865/photo/artificial-intelligence-in-healthcare-ai-health-digital-healthcare-provider-telemedicine.jpg?s=612x612&w=0&k=20&c=W7TDnrCel13FvNFAMrKctUkh5upszN6UEXotOF75oik="
+        src="/heroimage.png"
         alt="hero"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ y: backgroundY }}
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/60" />
+      {/* Top-left corner overlay for logo visibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-transparent to-transparent" />
 
       {/* Navbar */}
-    
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end h-full px-10 pb-16">
-       <motion.div
-  className="mb-6 self-start inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white backdrop-blur-sm"
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.2, duration: 0.5 }}
->
+      <div className="relative z-10 flex flex-col justify-end h-full px-10 pb-4">
+        <motion.div
+          className="mb-6 self-start inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white backdrop-blur-sm"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+        >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-white" />
@@ -71,7 +123,7 @@ export default function Tryhero() {
           India's Trusted Healthcare Distributor
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="flex items-center justify-between mb-6"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -85,7 +137,7 @@ export default function Tryhero() {
           </button> */}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="max-w-2xl text-md md:text-lg leading-relaxed font-light flex flex-wrap gap-x-1"
           variants={containerVariants}
           initial="hidden"
@@ -98,14 +150,79 @@ export default function Tryhero() {
           ))}
         </motion.div>
 
-        <div className="mt-8 w-full grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-20">
+        {/* Links Section */}
+        <motion.div
+          className="flex flex-wrap items-center gap-6 md:gap-8 mt-6 md:mt-8"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.6 }}
+        >
+          {/* Explore our products link */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 2.2, duration: 0.6 }}
+            className="group relative inline-block"
+          >
+            <Link
+              href="/#products"
+              className="relative text-white text-sm md:text-base font-light py-2 inline-block"
+            >
+              Explore our products
+              {/* Animated underline */}
+              <motion.span
+                className="absolute bottom-0 left-0 h-[1px] bg-white"
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+              {/* Static underline */}
+              <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/30" />
+            </Link>
+          </motion.div>
+
+          {/* Separator */}
+          <motion.span 
+            className="hidden md:block text-white/30"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.4, duration: 0.4 }}
+          >
+            •
+          </motion.span>
+
+          {/* Partner with us link */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 2.4, duration: 0.6 }}
+            className="group relative inline-block"
+          >
+            <Link
+              href="/#contact"
+              className="relative text-white text-sm md:text-base font-light py-2 inline-block"
+            >
+              Partner with us
+              {/* Animated underline */}
+              <motion.span
+                className="absolute bottom-0 left-0 h-[1px] bg-white"
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+              {/* Static underline */}
+              <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/30" />
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        <div className="mt-12 md:mt-16 w-full grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-20">
           <motion.div
             className="inline-flex flex-col items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm text-white backdrop-blur-sm"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7 }}
           >
-            <div className="text-lg">👥</div>
             <div className="text-xl md:text-2xl font-bold">500+</div>
             <p className="text-xs opacity-70">Healthcare Partners</p>
           </motion.div>
@@ -115,8 +232,9 @@ export default function Tryhero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
           >
-            <div className="text-lg">📦</div>
-            <div className="text-xl md:text-2xl font-bold">5,000+</div>
+            <div className="text-xl md:text-2xl font-bold">
+              {productsCount.toLocaleString()}+
+            </div>
             <p className="text-xs opacity-70">Products in Catalog</p>
           </motion.div>
           <motion.div
@@ -125,8 +243,7 @@ export default function Tryhero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
           >
-            <div className="text-lg">⚡</div>
-            <div className="text-xl md:text-2xl font-bold">98%</div>
+            <div className="text-xl md:text-2xl font-bold">{deliveryRate}%</div>
             <p className="text-xs opacity-70">On-Time Delivery Rate</p>
           </motion.div>
           <motion.div
@@ -135,7 +252,6 @@ export default function Tryhero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.7 }}
           >
-            <div className="text-lg">💬</div>
             <div className="text-xl md:text-2xl font-bold">24/7</div>
             <p className="text-xs opacity-70">Customer Support</p>
           </motion.div>

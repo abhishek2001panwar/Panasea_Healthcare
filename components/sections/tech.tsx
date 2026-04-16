@@ -1,26 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-
-const sideImages = [
-  {
-    src: "https://media.istockphoto.com/id/1214111697/photo/diverse-international-team-of-industrial-scientists-and-engineers-wearing-white-coats-working.jpg?s=612x612&w=0&k=20&c=dJVBLm_dkf9JXB7j3mLbsKy4z4RxSE5ZLVgzRMQpPFg=",
-    alt: "Healthcare professional at work",
-    position: "left",
-  },
-  {
-    src: "https://media.istockphoto.com/id/1422967697/photo/ampoule-on-conveyor.jpg?s=612x612&w=0&k=20&c=hUXU17F3uGqB_2r2O8GpVKfqRQgKN7enopvWMO4mkfo=",
-    alt: "Medical supplies and pharmaceuticals",
-    position: "right",
-  },
-];
-
-const textCycles = [
-  "Healthcare Distribution Excellence.",
-  "Global Pharmaceutical Reach.",
-  "Premium Supply Solutions.",
-];
 
 const services = [
   {
@@ -28,326 +9,552 @@ const services = [
     title: "Hospitals & Healthcare Institutions",
     description:
       "Comprehensive, high-volume supply solutions for multi-specialty hospitals, nursing homes, and day-care centers-with dedicated account management and scheduled replenishment.",
+    icon: (
+      <svg
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-8 h-8"
+      >
+        <rect
+          x="6"
+          y="4"
+          width="28"
+          height="32"
+          rx="2"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          fill="none"
+        />
+        <line
+          x1="14"
+          y1="20"
+          x2="26"
+          y2="20"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+        />
+        <line
+          x1="20"
+          y1="14"
+          x2="20"
+          y2="26"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+        />
+        <rect
+          x="12"
+          y="28"
+          width="16"
+          height="2"
+          rx="1"
+          fill="#212C5F"
+          opacity="0.25"
+        />
+      </svg>
+    ),
   },
   {
     number: "02",
     title: "Pharmacies & Retail Chains",
     description:
       "Fast, reliable medicine supply for standalone pharmacies and retail chains, with competitive margins and consistent stock availability of fast-moving products.",
+    icon: (
+      <svg
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-8 h-8"
+      >
+        <rect
+          x="6"
+          y="10"
+          width="28"
+          height="22"
+          rx="2"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          fill="none"
+        />
+        <path
+          d="M13 10 V7 Q20 4 27 7 V10"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          fill="none"
+        />
+        <line
+          x1="12"
+          y1="18"
+          x2="28"
+          y2="18"
+          stroke="#212C5F"
+          strokeWidth="1.2"
+          opacity="0.4"
+        />
+        <line
+          x1="12"
+          y1="23"
+          x2="22"
+          y2="23"
+          stroke="#212C5F"
+          strokeWidth="1.2"
+          opacity="0.3"
+        />
+      </svg>
+    ),
   },
   {
     number: "03",
     title: "Diagnostic Centers & Labs",
     description:
       "Specialized supply of reagents, test kits, and consumables for pathology labs and diagnostic imaging centers, with assured cold-chain handling.",
+    icon: (
+      <svg
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-8 h-8"
+      >
+        <path
+          d="M16 8 L16 22 L9 34 L31 34 L24 22 L24 8"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <line
+          x1="12"
+          y1="8"
+          x2="28"
+          y2="8"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+        />
+        <circle cx="14" cy="28" r="1.5" fill="#212C5F" opacity="0.4" />
+        <circle cx="21" cy="30" r="1" fill="#212C5F" opacity="0.3" />
+        <circle cx="26" cy="27" r="1" fill="#212C5F" opacity="0.25" />
+      </svg>
+    ),
   },
   {
     number: "04",
     title: "Import & Export Services",
     description:
       "End-to-end facilitation of international pharmaceutical trade-from regulatory clearances and documentation to customs compliance and global logistics coordination.",
+    icon: (
+      <svg
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-8 h-8"
+      >
+        <circle
+          cx="20"
+          cy="20"
+          r="13"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          fill="none"
+        />
+        <path
+          d="M20 7 Q26 13 26 20 Q26 27 20 33"
+          stroke="#212C5F"
+          strokeWidth="1.2"
+          fill="none"
+          opacity="0.5"
+        />
+        <path
+          d="M20 7 Q14 13 14 20 Q14 27 20 33"
+          stroke="#212C5F"
+          strokeWidth="1.2"
+          fill="none"
+          opacity="0.5"
+        />
+        <line
+          x1="7"
+          y1="20"
+          x2="33"
+          y2="20"
+          stroke="#212C5F"
+          strokeWidth="1.2"
+          opacity="0.4"
+        />
+        <line
+          x1="9"
+          y1="14"
+          x2="31"
+          y2="14"
+          stroke="#212C5F"
+          strokeWidth="1"
+          opacity="0.25"
+        />
+        <line
+          x1="9"
+          y1="26"
+          x2="31"
+          y2="26"
+          stroke="#212C5F"
+          strokeWidth="1"
+          opacity="0.25"
+        />
+      </svg>
+    ),
   },
   {
     number: "05",
     title: "Warehousing & Logistics",
     description:
       "Temperature-controlled, secure warehousing with real-time inventory management, ensuring full product integrity from inbound receipt to outbound delivery.",
+    icon: (
+      <svg
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-8 h-8"
+      >
+        <path
+          d="M4 18 L20 8 L36 18 L36 34 L4 34 Z"
+          stroke="#212C5F"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <rect
+          x="15"
+          y="24"
+          width="10"
+          height="10"
+          rx="1"
+          stroke="#212C5F"
+          strokeWidth="1.2"
+          fill="none"
+        />
+        <line
+          x1="4"
+          y1="18"
+          x2="36"
+          y2="18"
+          stroke="#212C5F"
+          strokeWidth="1"
+          opacity="0.3"
+        />
+      </svg>
+    ),
   },
 ];
 
-const CARD_H = 140;
-const CARD_GAP = 10;
-const TOP_PADDING = 10; // Distance from top of viewport - reduced for more card space
-
-export function TechnologySection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const servicesRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [servicesProgress, setServicesProgress] = useState(0);
-  const [vh, setVh] = useState(0);
-
-  const totalCards = services.length;
-
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
   useEffect(() => {
-    setVh(window.innerHeight);
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
 
-    const handleResize = () => setVh(window.innerHeight);
-    window.addEventListener("resize", handleResize);
-
-    const handleScroll = () => {
-      // Hero
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrollableHeight = window.innerHeight * 4;
-        const progress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-        setScrollProgress(progress);
-      }
-      // Services
-      if (servicesRef.current) {
-        const rect = servicesRef.current.getBoundingClientRect();
-        const sectionScrollHeight = servicesRef.current.offsetHeight - window.innerHeight;
-        const progress = Math.max(0, Math.min(1, -rect.top / sectionScrollHeight));
-        setServicesProgress(progress);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // Hero layout
-  const imageProgress = Math.max(0, Math.min(1, (scrollProgress - 0.2) / 0.8));
-  const centerWidth = 100 - imageProgress * 58;
-  const sideWidth = imageProgress * 22;
-  const sideOpacity = imageProgress;
-  const sideTranslateLeft = -100 + imageProgress * 100;
-  const sideTranslateRight = 100 - imageProgress * 100;
-  const gap = imageProgress * 16;
-
-  // Header fades in first 15% of services scroll
-  const headerOpacity = Math.max(0, 1 - servicesProgress / 0.15);
-
-  // Card band = 1 scroll unit per card
-  const cardBandSize = 1 / totalCards;
-
+function SplitHeading({
+  text,
+  inView,
+  baseDelay = 0,
+}: {
+  text: string;
+  inView: boolean;
+  baseDelay?: number;
+}) {
+  const words = text.split(" ");
   return (
     <>
-      {/* ── HERO SECTION ── */}
-      <section  ref={sectionRef} className="relative bg-foreground">
-        <div className="sticky top-0 h-screen overflow-hidden">
-          <div className="flex h-full w-full items-center justify-center">
-            <div
-              className="relative flex h-full w-full items-stretch justify-center"
-              style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px` }}
-            >
-              {/* Left */}
-              <div
-                className="relative overflow-hidden will-change-transform"
-                style={{
-                  width: `${sideWidth}%`,
-                  height: "100%",
-                  transform: `translateX(${sideTranslateLeft}%)`,
-                  opacity: sideOpacity,
-                }}
-              >
-                {sideImages
-                  .filter((img) => img.position === "left")
-                  .map((img, idx) => (
-                    <Image key={idx} src={img.src} alt={img.alt} fill className="object-cover" />
-                  ))}
-              </div>
-
-              {/* Center */}
-              <div
-                className="relative overflow-hidden will-change-transform"
-                style={{ width: `${centerWidth}%`, height: "100%", flex: "0 0 auto" }}
-              >
-                <Image
-                  src="https://media.istockphoto.com/id/1521289911/photo/container-trucks-parked-loading-package-boxes-pallets-at-warehouse-dock-supply-chain.jpg?s=612x612&w=0&k=20&c=cbaUTGirSEdGMgXoxdHBmOuVJ7LsJaJERY7lnLz5-fg="
-                  alt="Pharmacy and pharmaceutical distribution"
-                  fill
-                  className="object-cover object-center"
-                />
-                <Image
-                  src="https://images.unsplash.com/photo-1631217314830-4d5e9d1f9f3e?w=1000&h=1000&fit=crop"
-                  alt="Medical supplies warehouse"
-                  fill
-                  className="absolute inset-0 object-cover"
-                  style={{ opacity: Math.max(0, Math.min(1, (scrollProgress - 0.1) / 0.2)) }}
-                />
-                <Image
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1000&h=1000&fit=crop"
-                  alt="Healthcare distribution center"
-                  fill
-                  className="absolute inset-0 object-cover"
-                  style={{ opacity: Math.max(0, Math.min(1, (scrollProgress - 0.4) / 0.2)) }}
-                />
-                {/* <Image
-                  src="https://images.unsplash.com/photo-1576091160675-4daf3a556f51?w=1000&h=1000&fit=crop"
-                  alt=""
-                  fill
-                  className="absolute inset-0 object-cover"
-                  style={{ opacity: Math.max(0, Math.min(1, (scrollProgress - 0.7) / 0.2)) }}
-                /> */}
-                <div className="absolute inset-0 bg-foreground/40" />
-
-                <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-                  {textCycles.map((text, cycleIndex) => {
-                    const cycleStart = cycleIndex / textCycles.length;
-                    const cycleEnd = (cycleIndex + 1) / textCycles.length;
-                    const words = text.split(" ");
-                    return (
-                      <h2
-                        key={cycleIndex}
-                        className="absolute max-w-3xl font-medium leading-tight tracking-tight text-white md:text-5xl lg:text-7xl text-5xl"
-                      >
-                        {words.map((word, wordIndex) => {
-                          let wordOpacity = 0;
-                          let wordBlur = 40;
-                          if (scrollProgress >= cycleStart && scrollProgress < cycleEnd) {
-                            const lp = (scrollProgress - cycleStart) / (cycleEnd - cycleStart);
-                            if (lp < 0.5) {
-                              const ap = (lp / 0.5) * (words.length + 1);
-                              const wp = Math.max(0, Math.min(1, ap - wordIndex));
-                              wordOpacity = wp;
-                              wordBlur = (1 - wp) * 40;
-                            } else {
-                              const dp = ((lp - 0.5) / 0.5) * (words.length + 1);
-                              const wp = Math.max(0, Math.min(1, dp - wordIndex));
-                              wordOpacity = 1 - wp;
-                              wordBlur = wp * 40;
-                            }
-                          }
-                          return (
-                            <span
-                              key={wordIndex}
-                              className="inline-block"
-                              style={{
-                                opacity: wordOpacity,
-                                filter: `blur(${wordBlur}px)`,
-                                transition: "opacity 0.1s linear, filter 0.1s linear",
-                                marginRight: "0.3em",
-                              }}
-                            >
-                              {word}
-                            </span>
-                          );
-                        })}
-                      </h2>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Right */}
-              <div
-                className="relative overflow-hidden will-change-transform"
-                style={{
-                  width: `${sideWidth}%`,
-                  height: "100%",
-                  transform: `translateX(${sideTranslateRight}%)`,
-                  opacity: sideOpacity,
-                }}
-              >
-                {sideImages
-                  .filter((img) => img.position === "right")
-                  .map((img, idx) => (
-                    <Image key={idx} src={img.src} alt={img.alt} fill className="object-cover" />
-                  ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="h-[400vh]" />
-      </section>
-
-      {/* ── SERVICES SECTION ──
-          Cards start at the top of viewport and stack downward as you scroll.
-          Each card gets its own animation band.
-          Total scroll room = totalCards * 100vh + 1 extra for breathing.
-      */}
-      <section
-      id="services"
-        ref={servicesRef}
-        className="relative bg-black"
-        style={{ height: `${(totalCards + 1) * 100}vh` }}
-      >
-        <div className="sticky top-0 h-screen overflow-hidden bg-black">
-
-          {/* Section header */}
-          <div
-            className="absolute top-10 md:top-14 left-0 right-0 text-center pointer-events-none z-50"
-            style={{ opacity: headerOpacity, transition: "none" }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
-              our  Services
-            </p>
-            <h2 className="text-3xl md:text-4xl font-medium text-white">
-Serving Every Segment of Healthcare            </h2>
-          </div>
-
-          {/* Cards-each stacked downward from the top */}
-          <div className="absolute inset-0 flex items-start justify-center pt-0">
-            <div className="relative w-full max-w-xl px-6 md:px-0 h-screen" style={{ paddingTop: `${TOP_PADDING}px` }}>
-              {services.map((service, i) => {
-                /*
-                  LOGIC:
-                  - Card i animates in during progress band [i/N, (i+1)/N]
-                  - Cards are anchored to the TOP of the viewport
-                  - Card 0 appears first at top, then card 1 below it, etc
-                  - Each card slides down from above into its resting spot
-                  - Resting top edge for card i = TOP_PADDING + i * (CARD_H + CARD_GAP)
-                */
-                const bandStart = i * cardBandSize;
-                const bandEnd = (i + 1) * cardBandSize;
-
-                // 0 → 1 within this card's band
-                const rawT = Math.max(
-                  0,
-                  Math.min(1, (servicesProgress - bandStart) / (bandEnd - bandStart))
-                );
-                // easeOut curve
-                const t = 1 - (1 - rawT) * (1 - rawT);
-
-                const hasEntered = servicesProgress >= bandStart;
-
-                // Calculate top position - card i stacks at: padding + i * (height + gap)
-                const restingTopPx = TOP_PADDING + i * (CARD_H + CARD_GAP);
-
-                // Slide in from above: start 120px above resting, end at resting
-                const slideOffset = hasEntered ? -(1 - t) * 120 : -120;
-
-                // Slight scale reduction for cards deeper in stack (purely aesthetic)
-                const depthScale = 1 - i * 0.01;
-
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      position: "absolute",
-                      left: 0,
-                      right: 0,
-                      height: `${CARD_H}px`,
-                      top: `${restingTopPx}px`,
-                      transform: `translateY(${slideOffset}px) scale(${depthScale})`,
-                      opacity: hasEntered ? t : 0,
-                      zIndex: i + 1,
-                      willChange: "transform, opacity",
-                      transformOrigin: "top center",
-                    }}
-                    className="bg-neutral-950 border border-neutral-800 rounded-2xl px-7 py-5 flex flex-col justify-between"
-                  >
-                    {/* Top hairline accent */}
-                    <div
-                      className="absolute top-0 left-6 right-6 h-px"
-                      style={{
-                        background: "linear-gradient(90deg, transparent, #2a2a2a, transparent)",
-                      }}
-                    />
-
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-xs font-medium text-neutral-600 tracking-widest tabular-nums flex-shrink-0">
-                        {service.number}
-                      </span>
-                      <span className="text-base font-semibold text-white leading-snug">
-                        {service.title}
-                      </span>
-                    </div>
-
-                    <p className="text-sm text-neutral-500 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+      {words.map((word, i) => (
+        <span
+          key={i}
+          className="inline-block mr-[0.25em]"
+          style={{
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(24px)",
+            transition: `opacity 0.55s ease ${baseDelay + i * 65}ms, transform 0.55s ease ${baseDelay + i * 65}ms`,
+          }}
+        >
+          {word}
+        </span>
+      ))}
     </>
+  );
+}
+
+function ServiceCard({
+  service,
+  index,
+}: {
+  service: (typeof services)[0];
+  index: number;
+}) {
+  const { ref, inView } = useInView(0.12);
+
+  return (
+    <div
+      ref={ref}
+      className="group relative bg-white/70 backdrop-blur-md rounded-2xl p-7 flex flex-col overflow-hidden cursor-default"
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView
+          ? "translateY(0) scale(1)"
+          : "translateY(36px) scale(0.97)",
+        transition: `opacity 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 90}ms, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${index * 90}ms`,
+        border: "1px solid rgba(33,44,95,0.08)",
+        boxShadow:
+          "0 2px 20px 0 rgba(33,44,95,0.06), 0 1px 4px 0 rgba(33,44,95,0.04)",
+      }}
+    >
+      {/* Top accent line that animates width on entry */}
+      <div
+        className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-[#212C5F] to-[#4A5B9F]/50 rounded-t-2xl"
+        style={{
+          width: inView ? "100%" : "0%",
+          transition: `width 0.8s cubic-bezier(0.22,1,0.36,1) ${index * 90 + 200}ms`,
+        }}
+      />
+
+      {/* Number + Icon row */}
+      <div className="flex items-start justify-between mb-5">
+        <span
+          className="text-[11px] font-bold tracking-[0.2em] text-[#212C5F]/40 uppercase"
+          style={{
+            opacity: inView ? 1 : 0,
+            transition: `opacity 0.5s ease ${index * 90 + 150}ms`,
+          }}
+        >
+          {service.number}
+        </span>
+        {/* <div
+          className="group-hover:scale-110 transition-transform duration-300"
+          style={{
+            opacity: inView ? 1 : 0,
+            transform: inView
+              ? "rotate(0deg) scale(1)"
+              : "rotate(-10deg) scale(0.6)",
+            transition: `opacity 0.5s ease ${index * 90 + 220}ms, transform 0.5s ease ${index * 90 + 220}ms`,
+          }}
+        >
+          {service.icon}
+        </div> */}
+      </div>
+
+      {/* Title */}
+      <h3
+        className="text-lg font-semibold text-[#18181B] mb-3 leading-snug"
+        style={{
+          opacity: inView ? 1 : 0,
+          transform: inView ? "translateX(0)" : "translateX(-10px)",
+          transition: `opacity 0.55s ease ${index * 90 + 180}ms, transform 0.55s ease ${index * 90 + 180}ms`,
+        }}
+      >
+        {service.title}
+      </h3>
+
+      {/* Description */}
+      <p
+        className="text-sm text-neutral-500 leading-relaxed mt-auto"
+        style={{
+          opacity: inView ? 1 : 0,
+          transform: inView ? "translateY(0)" : "translateY(8px)",
+          transition: `opacity 0.55s ease ${index * 90 + 260}ms, transform 0.55s ease ${index * 90 + 260}ms`,
+        }}
+      >
+        {service.description}
+      </p>
+
+      {/* Radial glow on hover */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at 70% 80%, rgba(74,91,159,0.07) 0%, transparent 65%)",
+        }}
+      />
+    </div>
+  );
+}
+
+function SectionHeader() {
+  const { ref, inView } = useInView(0.2);
+
+  return (
+    // <div ref={ref} className="text-center mb-4">
+    //   {/* Label with lines */}
+    //   <div
+    //     className="inline-flex items-center gap-3 mb-5"
+    //     style={{
+    //       opacity: inView ? 1 : 0,
+    //       transform: inView ? "translateY(0)" : "translateY(12px)",
+    //       transition: "opacity 0.5s ease 0ms, transform 0.5s ease 0ms",
+    //     }}
+    //   >
+    //     <span
+    //       className="block h-px bg-[#212C5F]/35"
+    //       style={{
+    //         width: inView ? "28px" : "0px",
+    //         transition: "width 0.6s ease 200ms",
+    //       }}
+    //     />
+    //     <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#212C5F]/55">Our Services</p>
+    //     <span
+    //       className="block h-px bg-[#212C5F]/35"
+    //       style={{
+    //         width: inView ? "28px" : "0px",
+    //         transition: "width 0.6s ease 200ms",
+    //       }}
+    //     />
+    //   </div>
+
+    //   {/* Heading word-by-word */}
+    //   <h2 className="text-4xl md:text-5xl font-bold text-[#18181B] mb-5 leading-tight">
+    //     <span className="block">
+    //       <SplitHeading text="Serving Every Segment" inView={inView} baseDelay={80} />
+    //     </span>
+    //     <span className="block">
+    //       <SplitHeading text="of Healthcare" inView={inView} baseDelay={320} />
+    //     </span>
+    //   </h2>
+
+    //   {/* Subtext */}
+    //   <p
+    //     className="text-base md:text-lg text-neutral-500 max-w-xl mx-auto leading-relaxed"
+    //     style={{
+    //       opacity: inView ? 1 : 0,
+    //       transform: inView ? "translateY(0)" : "translateY(14px)",
+    //       transition: "opacity 0.6s ease 500ms, transform 0.6s ease 500ms",
+    //     }}
+    //   >
+    //     From hospitals and pharmacies to diagnostic labs and global trade, Panasea delivers tailored solutions for every healthcare need.
+    //   </p>
+
+    //   {/* Animated underline divider */}
+    //   <div className="flex justify-center mt-8">
+    //     <div
+    //       className="h-px bg-gradient-to-r from-transparent via-[#212C5F]/25 to-transparent"
+    //       style={{
+    //         width: inView ? "160px" : "0px",
+    //         transition: "width 0.9s cubic-bezier(0.22,1,0.36,1) 420ms",
+    //       }}
+    //     />
+    //   </div>
+    // </div>
+    <div className="px-6 py-12 md:px-10 lg:px-20 lg:py-20 lg:pb-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center"
+      >
+        <motion.p
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-6"
+        >
+          Our Services
+        </motion.p>
+        <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl leading-tight mb-8 text-gray-900">
+          {["Serving", "Every", "Segment"].map((word, idx) => {
+            return (
+              <motion.span
+                key={idx}
+                className="inline-block mr-3"
+                initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: idx * 0.12,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                {word}
+              </motion.span>
+            );
+          })}
+          <br />
+          {["of", "Healthcare", "Needs", "Trust"].map((word, idx) => {
+            return (
+              <motion.span
+                key={`line2-${idx}`}
+                className="inline-block mr-3"
+                initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: (idx + 4.5) * 0.12,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                {word}
+              </motion.span>
+            );
+          })}
+        </h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          viewport={{ once: true }}
+          className="mt-8 leading-relaxed text-muted-foreground text-md text-center"
+        >
+          From hospitals and pharmacies to diagnostic labs and global trade,
+          Panasea delivers tailored solutions for every healthcare need.
+        </motion.p>
+      </motion.div>
+    </div>
+  );
+}
+
+export function TechnologySection() {
+  return (
+    <section
+      id="services"
+      className="relative py-5"
+      style={{
+        background:
+          "linear-gradient(135deg, #F5F1EB 0%, #f7f6f3 50%, #e9e6e1 100%)",
+      }}
+    >
+      {/* Grain texture overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+          backgroundSize: "128px 128px",
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+        <SectionHeader />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((service, i) => (
+            <ServiceCard key={i} service={service} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

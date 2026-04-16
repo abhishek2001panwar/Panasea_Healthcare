@@ -493,7 +493,7 @@ function SectionHeader() {
             );
           })}
           <br />
-          {["of", "Healthcare", "Needs", "Trust"].map((word, idx) => {
+          {["of", "Healthcare"].map((word, idx) => {
             return (
               <motion.span
                 key={`line2-${idx}`}
@@ -519,8 +519,8 @@ function SectionHeader() {
           viewport={{ once: true }}
           className="mt-8 leading-relaxed text-muted-foreground text-md text-center"
         >
-          From hospitals and pharmacies to diagnostic labs and global trade,
-          Panasea delivers tailored solutions for every healthcare need.
+          Whether you run a multi-specialty hospital or a standalone pharmacy,
+          our distribution services are designed to fit your exact needs.
         </motion.p>
       </motion.div>
     </div>

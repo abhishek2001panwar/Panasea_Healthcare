@@ -141,13 +141,13 @@ export function WhyChooseUs() {
 
               {/* Quote block */}
               <div className="p-7 border-b" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
-                <div className="flex items-center gap-2 mb-3">
+                {/* <div className="flex items-center gap-2 mb-3">
                   <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#96C5FF" }} />
                   <span className="text-[11px] font-medium tracking-[2px] uppercase"
                     style={{ color: "rgba(150,197,255,0.8)" }}>
                     Live network
                   </span>
-                </div>
+                </div> */}
                 <p className="text-[15px] leading-relaxed italic"
                   style={{ color: "rgba(220,230,255,0.8)" }}>
                   "Access to quality medicines is not a luxury - it's a fundamental pillar of

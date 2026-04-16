@@ -104,7 +104,7 @@ export default function Tryhero() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/60" />
       {/* Top-left corner overlay for logo visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/40 sm:from-black/60 md:from-black/80 lg:from-black/90 via-transparent to-transparent" />
 
       {/* Navbar */}
 

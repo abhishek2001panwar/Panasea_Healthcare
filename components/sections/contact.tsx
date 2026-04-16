@@ -197,7 +197,7 @@ export default function ContactSection() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-4 sm:pb-4 w-full">
+        <div className="flex-1 max-w-7xl mx-auto px-2 sm:px-6 md:px-8 lg:px-12 pb-4 sm:pb-4 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-10">
             {/* LEFT: Contact Form - Premium Glassmorphism */}
             <motion.div

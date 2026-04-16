@@ -95,7 +95,7 @@ export default function Tryhero() {
     <div className="relative w-full h-screen text-white overflow-hidden">
       {/* Background Image with Parallax Effect */}
       <motion.img
-        src="/heroimage.png"
+        src="/heroimage.PNG"
         alt="hero"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ y: backgroundY }}

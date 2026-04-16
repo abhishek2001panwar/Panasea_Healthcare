@@ -80,7 +80,7 @@ const AboutSection: React.FC = () => {
     <section
       id="about"
       ref={containerRef}
-      className="relative w-full overflow-hidden py-0 md:py-0 lg:py-0 bg-[#F5F1EB]"
+      className="relative w-full overflow-hidden py-6 sm:py-12 md:py-0 lg:py-0 bg-[#F5F1EB]"
     >
       {/* ── Animated background orbs (original) ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -101,10 +101,10 @@ const AboutSection: React.FC = () => {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
 
         {/* ── Heading block — original animation, "Trust" gets shimmer ── */}
-        <div className="px-6 py-2 md:px-10 lg:px-20 lg:py-10 lg:pb-10">
+        <div className="px-3 sm:px-6 py-2 md:px-10 lg:px-20 lg:py-10 lg:pb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,12 +117,12 @@ const AboutSection: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-6"
+              className="text-[10px] sm:text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-4 sm:mb-6"
             >
               About us
             </motion.p>
 
-            <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl leading-tight mb-8 text-gray-900">
+            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl leading-tight mb-6 sm:mb-8 text-gray-900">
               {/* Line 1: original word-by-word pop animation */}
               {["We", "Don't", "Just", "Deliver"].map((word, idx) => (
                 <motion.span
@@ -178,7 +178,7 @@ const AboutSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
               viewport={{ once: true }}
-              className="mt-8 leading-relaxed text-muted-foreground text-md text-center"
+              className="mt-6 sm:mt-8 leading-relaxed text-muted-foreground text-sm sm:text-base md:text-lg text-center"
             >
               Panasea Healthcare is a premier pharmaceutical and medical
               supplies distributor, connecting certified manufacturers with
@@ -189,10 +189,10 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* ── Two-column layout ── */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-stretch mb-16 md:mb-20 lg:mb-24">
+        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-16 items-stretch mb-12 sm:mb-16 md:mb-20 lg:mb-24">
 
           {/* Left: Feature cards (original styling + left accent bar on hover) */}
-          <div className="flex-1 flex flex-col gap-4 md:gap-3">
+          <div className="flex-1 flex flex-col gap-3 sm:gap-4 md:gap-3">
             {features.map((item, i) => (
               <motion.div
                 key={i}
@@ -202,7 +202,7 @@ const AboutSection: React.FC = () => {
                 viewport={{ once: true }}
                 className="group relative"
               >
-                <div className="flex items-start gap-4 bg-gradient-to-br from-white to-white/90 backdrop-blur-xl rounded-2xl p-6 md:p-7 border border-white/60 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-[#212C5F]/30 overflow-hidden relative">
+                <div className="flex items-start gap-3 sm:gap-4 bg-gradient-to-br from-white to-white/90 backdrop-blur-xl rounded-2xl p-4 sm:p-6 md:p-7 border border-white/60 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-[#212C5F]/30 overflow-hidden relative">
                   {/* Gradient overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#212C5F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   {/* Left accent bar on hover */}
@@ -212,7 +212,7 @@ const AboutSection: React.FC = () => {
                     whileHover={{ scale: 1.15, rotate: 8 }}
                     animate={{ y: [0, -6, 0] }}
                     transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-[#212C5F]/20 to-[#4A5B9F]/15 border border-[#212C5F]/30 text-3xl md:text-4xl flex-shrink-0 relative z-10"
+                    className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-[#212C5F]/20 to-[#4A5B9F]/15 border border-[#212C5F]/30 text-2xl sm:text-3xl md:text-4xl flex-shrink-0 relative z-10"
                   >
                     {item.icon}
                   </motion.div>
@@ -223,7 +223,7 @@ const AboutSection: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: i * 0.15 + 0.1 }}
                       viewport={{ once: true }}
-                      className="text-base md:text-lg font-semibold text-[#212C5F] mb-2.5 leading-snug"
+                      className="text-sm sm:text-base md:text-lg font-semibold text-[#212C5F] mb-1.5 sm:mb-2.5 leading-snug"
                     >
                       {item.title}
                     </motion.h3>
@@ -232,7 +232,7 @@ const AboutSection: React.FC = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
                       viewport={{ once: true }}
-                      className="text-sm text-neutral-700 leading-snug"
+                      className="text-xs sm:text-sm text-neutral-700 leading-snug"
                     >
                       {item.desc}
                     </motion.p>
@@ -250,7 +250,7 @@ const AboutSection: React.FC = () => {
             viewport={{ once: true }}
             className="flex-1 flex items-center group"
           >
-            <div className="w-full bg-gradient-to-br from-white via-white to-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/70 p-8 md:p-12 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+            <div className="w-full bg-gradient-to-br from-white via-white to-white/95 backdrop-blur-xl rounded-3xl shadow-lg sm:shadow-xl md:shadow-2xl border border-white/70 p-5 sm:p-8 md:p-12 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
               {/* Corner orb */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#212C5F]/10 to-[#4A5B9F]/5 rounded-full blur-3xl -mr-20 -mt-20" />
               {/* Animated border sweep on hover */}
@@ -262,7 +262,7 @@ const AboutSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-2xl md:text-3xl font-bold mb-4 leading-tight gradient-shimmer-text"
+                  className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight gradient-shimmer-text"
                 >
                   Why Healthcare
                   <br />
@@ -274,14 +274,14 @@ const AboutSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="text-base md:text-lg text-neutral-700 mb-6 leading-relaxed"
+                  className="text-sm sm:text-base md:text-lg text-neutral-700 mb-5 sm:mb-6 leading-relaxed"
                 >
                   We've built lasting relationships with hospitals, diagnostic
                   chains, and independent pharmacies by consistently delivering
                   what matters most: the right product, on time, every time.
                 </motion.p>
 
-                <ul className="space-y-4 mt-6">
+                <ul className="space-y-3 sm:space-y-4 mt-5 sm:mt-6">
                   {storyPoints.map((point, idx) => (
                     <motion.li
                       key={idx}

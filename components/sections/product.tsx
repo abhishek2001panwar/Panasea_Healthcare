@@ -105,7 +105,7 @@ const features = [
     title: "Surgical Instruments & OT Equipment",
     description:
       "Modern OT tables, surgical lighting, sterile instrument sets, and patient monitoring systems for advanced surgical environments.",
-    image: "🏥",
+    image: "/surgery.png",
     slug: "surgical-instruments-ot-equipment",
   },
   {
@@ -169,8 +169,24 @@ function ProductCard({
       }}
     >
       {/* Icon / Image area */}
-      <div className="relative w-full rounded-3xl h-40 md:h-52 flex items-center justify-center bg-gradient-to-br from-[#212C5F]/10 to-[#4A5B9F]/10 overflow-hidden">
-        {feature.image && feature.image.startsWith("http") ? (
+      <div className="relative w-full rounded-3xl h-32 sm:h-40 md:h-52 flex items-center justify-center bg-gradient-to-br from-[#212C5F]/10 to-[#4A5B9F]/10 overflow-hidden">
+        {feature.slug === "surgical-instruments-ot-equipment" ? (
+          // Surgery: Smaller image centered with background visible
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6, rotate: -8 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.55, delay: index * 0.08 + 0.2 }}
+            viewport={{ once: true }}
+            className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 z-10"
+          >
+            <FadeImage
+              src={feature.image}
+              alt={feature.title}
+              fill
+              className="object-contain rounded-2xl"
+            />
+          </motion.div>
+        ) : feature.image && feature.image.startsWith("http") ? (
           <>
             <FadeImage
               src={feature.image}
@@ -199,7 +215,7 @@ function ProductCard({
             className="text-center z-10"
           >
             {/* Display emoji icon in center */}
-            <div className="text-7xl md:text-8xl drop-shadow-lg">
+            <div className="text-5xl sm:text-7xl md:text-8xl drop-shadow-lg">
               {feature.image || "📦"}
             </div>
           </motion.div>
@@ -210,10 +226,10 @@ function ProductCard({
       </div>
 
       {/* Content */}
-      <div className="py-6">
-        <div className="flex items-center justify-between gap-3 group/title">
+      <div className="py-4 sm:py-6">
+        <div className="flex items-center justify-between gap-2 sm:gap-3 group/title">
           <h3
-            className="text-foreground text-xl font-semibold flex-1"
+            className="text-foreground text-base sm:text-lg md:text-xl font-semibold flex-1"
             style={{
               opacity: inView ? 1 : 0,
               transform: inView ? "translateX(0)" : "translateX(-12px)",
@@ -328,7 +344,7 @@ function AnimatedSubtext() {
   return (
     <p
       ref={ref}
-      className="mt-8 px-10 leading-relaxed text-muted-foreground text-md text-center"
+      className="mt-6 sm:mt-8 px-4 sm:px-6 md:px-10 leading-relaxed text-muted-foreground text-sm sm:text-base md:text-lg text-center"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(16px)",
@@ -349,7 +365,7 @@ function AnimatedLabel() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-6"
+              className="text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-4 sm:mb-6"
             >
                 Our Products
             </motion.p>
@@ -360,7 +376,7 @@ export function Products() {
   return (
     <section id="products" className="bg-[#FAF9F7]">
       {/* Section Title */}
-      <div className="px-6 md:py-10 md:px-12  lg:px-20 ">
+      <div className="px-4 sm:px-6 md:py-10 md:px-12 lg:px-20 py-6 sm:py-8">
         <div className="text-center">
           <AnimatedLabel />
           <AnimatedTitle />
@@ -369,14 +385,14 @@ export function Products() {
       </div>
 
       {/* Features Grid */}
-      <div className="grid grid-cols-1 gap-4 px-6  md:grid-cols-3 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 gap-3 sm:gap-4 px-4 sm:px-6 md:grid-cols-3 max-w-7xl mx-auto">
         {features.map((feature, index) => (
           <ProductCard key={feature.title} feature={feature} index={index} />
         ))}
       </div>
 
       {/* CTA Link */}
-      <div className="flex justify-center px-6 pb-28 md:px-12 lg:px-20"></div>
+      <div className="flex justify-center px-4 sm:px-6 pb-16 sm:pb-20 md:pb-28 md:px-12 lg:px-20"></div>
     </section>
   );
 }

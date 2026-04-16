@@ -310,7 +310,7 @@ function ServiceCard({
   return (
     <div
       ref={ref}
-      className="group relative bg-white/70 backdrop-blur-md rounded-2xl p-7 flex flex-col overflow-hidden cursor-default"
+      className="group relative bg-white/70 backdrop-blur-md rounded-2xl p-4 sm:p-5 md:p-7 flex flex-col overflow-hidden cursor-default"
       style={{
         opacity: inView ? 1 : 0,
         transform: inView
@@ -332,9 +332,9 @@ function ServiceCard({
       />
 
       {/* Number + Icon row */}
-      <div className="flex items-start justify-between mb-5">
+      <div className="flex items-start justify-between mb-3 sm:mb-5">
         <span
-          className="text-[11px] font-bold tracking-[0.2em] text-[#212C5F]/40 uppercase"
+          className="text-[9px] sm:text-[11px] font-bold tracking-[0.2em] text-[#212C5F]/40 uppercase"
           style={{
             opacity: inView ? 1 : 0,
             transition: `opacity 0.5s ease ${index * 90 + 150}ms`,
@@ -358,7 +358,7 @@ function ServiceCard({
 
       {/* Title */}
       <h3
-        className="text-lg font-semibold text-[#18181B] mb-3 leading-snug"
+        className="text-base sm:text-lg font-semibold text-[#18181B] mb-2 sm:mb-3 leading-snug"
         style={{
           opacity: inView ? 1 : 0,
           transform: inView ? "translateX(0)" : "translateX(-10px)",
@@ -370,7 +370,7 @@ function ServiceCard({
 
       {/* Description */}
       <p
-        className="text-sm text-neutral-500 leading-relaxed mt-auto"
+        className="text-xs sm:text-sm text-neutral-500 leading-relaxed mt-auto"
         style={{
           opacity: inView ? 1 : 0,
           transform: inView ? "translateY(0)" : "translateY(8px)",
@@ -456,7 +456,7 @@ function SectionHeader() {
     //     />
     //   </div>
     // </div>
-    <div className="px-6 py-12 md:px-10 lg:px-20 lg:py-20 lg:pb-10">
+    <div className="px-4 sm:px-6 py-8 sm:py-12 md:px-10 lg:px-20 lg:py-20 lg:pb-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -469,11 +469,11 @@ function SectionHeader() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-6"
+          className="text-[10px] sm:text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-4 sm:mb-6"
         >
           Our Services
         </motion.p>
-        <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl leading-tight mb-8 text-gray-900">
+        <h2 className="text-2xl sm:text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl leading-tight mb-6 sm:mb-8 text-gray-900">
           {["Serving", "Every", "Segment"].map((word, idx) => {
             return (
               <motion.span
@@ -517,7 +517,7 @@ function SectionHeader() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
           viewport={{ once: true }}
-          className="mt-8 leading-relaxed text-muted-foreground text-md text-center"
+          className="mt-6 sm:mt-8 leading-relaxed text-muted-foreground text-sm sm:text-base md:text-lg text-center"
         >
           Whether you run a multi-specialty hospital or a standalone pharmacy,
           our distribution services are designed to fit your exact needs.
@@ -546,10 +546,10 @@ export function TechnologySection() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <SectionHeader />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
           {services.map((service, i) => (
             <ServiceCard key={i} service={service} index={i} />
           ))}

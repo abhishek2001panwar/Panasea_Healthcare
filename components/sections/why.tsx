@@ -33,7 +33,7 @@ export function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative overflow-hidden py-20 px-6 md:px-12 lg:px-20 bg-[#1E2B5F]"
+      className="relative overflow-hidden py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-[#1E2B5F]"
     
     >
       {/* Ambient blobs */}
@@ -48,14 +48,14 @@ export function WhyChooseUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-10 md:mb-14"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block text-[11px] font-medium uppercase tracking-[3px] border rounded-full px-4 py-1 mb-5"
+            className="inline-block text-[9px] sm:text-[11px] font-medium uppercase tracking-[3px] border rounded-full px-3 sm:px-4 py-1 mb-4 sm:mb-5"
             style={{ color: "#96C5FF", borderColor: "rgba(150,197,255,0.35)" }}
           >
             Why Choose Us
@@ -65,7 +65,7 @@ export function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-semibold text-white mb-2 leading-tight capitalize"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2 leading-tight capitalize"
           >
             The standard for healthcare <br />
             distribution in India
@@ -81,7 +81,7 @@ export function WhyChooseUs() {
           />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-14 items-start">
           {/* Left: reasons list */}
           <div className="flex flex-col">
             {reasons.map((r, i) => (
@@ -91,7 +91,7 @@ export function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: i * 0.12 }}
-                className="flex gap-5 items-start py-6 border-b last:border-b-0"
+                className="flex gap-3 sm:gap-5 items-start py-4 sm:py-6 border-b last:border-b-0"
                 style={{ borderColor: "rgba(255,255,255,0.07)" }}
               >
                 <motion.span
@@ -99,7 +99,7 @@ export function WhyChooseUs() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.12 }}
-                  className="text-[11px] font-semibold tracking-[1.5px] min-w-[24px] pt-0.5"
+                  className="text-[10px] sm:text-[11px] font-semibold tracking-[1.5px] min-w-[24px] pt-0.5"
                   style={{ color: "rgba(150,197,255,0.55)" }}
                 >
                   {r.id}
@@ -110,7 +110,7 @@ export function WhyChooseUs() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55, delay: i * 0.15 }}
-                    className="text-base md:text-[17px] font-medium text-white mb-2"
+                    className="text-sm sm:text-base md:text-[17px] font-medium text-white mb-2"
                   >
                     {r.name}
                   </motion.h3>
@@ -119,7 +119,7 @@ export function WhyChooseUs() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55, delay: i * 0.18 }}
-                    className="text-sm leading-relaxed"
+                    className="text-xs sm:text-sm leading-relaxed"
                     style={{ color: "rgba(200,215,255,0.65)" }}
                   >
                     {r.description}
@@ -140,7 +140,7 @@ export function WhyChooseUs() {
               style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(150,197,255,0.2)" }}>
 
               {/* Quote block */}
-              <div className="p-7 border-b" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
+              <div className="p-5 sm:p-6 md:p-7 border-b" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
                 {/* <div className="flex items-center gap-2 mb-3">
                   <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "#96C5FF" }} />
                   <span className="text-[11px] font-medium tracking-[2px] uppercase"
@@ -148,7 +148,7 @@ export function WhyChooseUs() {
                     Live network
                   </span>
                 </div> */}
-                <p className="text-[15px] leading-relaxed italic"
+                <p className="text-sm sm:text-[15px] leading-relaxed italic"
                   style={{ color: "rgba(220,230,255,0.8)" }}>
                   "Access to quality medicines is not a luxury - it's a fundamental pillar of
                   healthcare delivery. We exist to make that access seamless."
@@ -156,10 +156,10 @@ export function WhyChooseUs() {
               </div>
 
               {/* Stats */}
-              <div className="p-6 flex flex-col gap-3">
+              <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-2 sm:gap-3">
                 {/* Active Partners - wide row */}
                 <motion.div
-                  className="flex items-center justify-between px-4 py-3 rounded-xl border"
+                  className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 rounded-xl border"
                   style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.06)" }}
                   initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -168,7 +168,7 @@ export function WhyChooseUs() {
                 >
                   <div>
                     <motion.p
-                      className="text-[12px] mb-1"
+                      className="text-[11px] sm:text-[12px] mb-1"
                       style={{ color: "rgba(180,200,255,0.55)" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -196,7 +196,7 @@ export function WhyChooseUs() {
                     </motion.p>
                   </div>
                   <motion.div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center border relative"
+                    className="w-9 sm:w-11 h-9 sm:h-11 rounded-xl flex items-center justify-center border relative"
                     style={{ background: "rgba(150,197,255,0.1)", borderColor: "rgba(150,197,255,0.2)" }}
                     initial={{ opacity: 0, scale: 0.6 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -241,9 +241,9 @@ export function WhyChooseUs() {
                 </motion.div>
 
                 {/* On-time + Support - 2 cols */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   <motion.div
-                    className="p-4 rounded-xl border relative"
+                    className="p-3 sm:p-4 rounded-xl border relative"
                     style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.06)" }}
                     initial={{ opacity: 0, scale: 0.85 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -251,7 +251,7 @@ export function WhyChooseUs() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
                     <motion.p
-                      className="text-[12px] mb-1"
+                      className="text-[11px] sm:text-[12px] mb-1"
                       style={{ color: "rgba(180,200,255,0.55)" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -268,7 +268,7 @@ export function WhyChooseUs() {
                       transition={{ duration: 0.6, delay: 0.7 }}
                     >
                       <div>
-                        <p className="text-2xl font-semibold text-white leading-none">
+                        <p className="text-xl sm:text-2xl font-semibold text-white leading-none">
                           98<span className="text-base" style={{ color: "#96C5FF" }}>%</span>
                         </p>
                       </div>
@@ -295,7 +295,7 @@ export function WhyChooseUs() {
                     </motion.div>
                   </motion.div>
                   <motion.div
-                    className="p-4 rounded-xl border"
+                    className="p-3 sm:p-4 rounded-xl border"
                     style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.06)" }}
                     initial={{ opacity: 0, scale: 0.85 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -303,7 +303,7 @@ export function WhyChooseUs() {
                     transition={{ duration: 0.6, delay: 0.65 }}
                   >
                     <motion.p
-                      className="text-[12px] mb-1"
+                      className="text-[11px] sm:text-[12px] mb-1"
                       style={{ color: "rgba(180,200,255,0.55)" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -313,7 +313,7 @@ export function WhyChooseUs() {
                       Support
                     </motion.p>
                     <motion.p 
-                      className="text-2xl font-semibold text-white leading-none mb-2"
+                      className="text-xl sm:text-2xl font-semibold text-white leading-none mb-2"
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -323,7 +323,7 @@ export function WhyChooseUs() {
                     </motion.p>
                     {/* Rotating bars animation */}
                     <motion.div
-                      className="flex gap-1 h-6 items-end"
+                      className="flex gap-1 h-5 sm:h-6 items-end"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -352,7 +352,7 @@ export function WhyChooseUs() {
 
                 {/* Products Listed - accent row */}
                 <motion.div
-                  className="flex items-center justify-between px-4 py-3 rounded-xl border relative overflow-hidden"
+                  className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 rounded-xl border relative overflow-hidden"
                   style={{ background: "rgba(150,197,255,0.08)", borderColor: "rgba(150,197,255,0.18)" }}
                   initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -375,7 +375,7 @@ export function WhyChooseUs() {
                   />
                   <div className="relative z-10">
                     <motion.p
-                      className="text-[12px] mb-1"
+                      className="text-[11px] sm:text-[12px] mb-1"
                       style={{ color: "rgba(150,197,255,0.7)" }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
@@ -405,7 +405,7 @@ export function WhyChooseUs() {
                     {[18, 26, 20, 34].map((h, i) => (
                       <motion.div
                         key={i}
-                        className="w-1.5 rounded"
+                        className="w-1 sm:w-1.5 rounded"
                         style={{ background: `rgba(150,197,255,${0.3 + i * 0.15})` }}
                         animate={{
                           height: [h * 0.3, h, h * 0.5],

@@ -18,6 +18,7 @@ import { HeroSections } from "@/components/sections/herosection";
 import { WhyChooseUs } from "@/components/sections/why";
 import { Products } from "@/components/sections/product";
 import Tryhero from "@/components/sections/tryhero";
+import CTA from "@/components/sections/cta";
 
 export default function Home() {
   return (
@@ -41,6 +42,7 @@ export default function Home() {
       {/* <GallerySection /> */}
       {/* <CollectionSection /> */}
       <WhyChooseUs />
+      <CTA />
       {/* <EditorialSection /> */}
       {/* <TestimonialsSection /> */}
       <ContactSection />

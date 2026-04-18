@@ -130,69 +130,56 @@ export default function ContactSection() {
             viewport={{ once: true }}
             className="space-y-1"
           >
-            {/* Badge */}
+            {/* Badge with blur background */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="inline-flex items-center justify-center mx-auto"
+              className="inline-block mb-6 relative"
             >
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full ">
-                <p className="text-xs font-bold uppercase tracking-widest text-black">
-                  Get In Touch
-                </p>
-              </div>
+              <motion.span
+                className="text-[11px] font-bold tracking-[0.4em] uppercase text-[#4A5B9F] block py-1 px-4"
+                whileHover={{ letterSpacing: "0.5em" }}
+                transition={{ duration: 0.3 }}
+              >
+                Get In Touch
+              </motion.span>
             </motion.div>
 
             {/* Heading */}
-            {/* <motion.h2
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl capitalize font-regular tracking-tighter leading-tight text-gray-900 mb-6"
             >
-              Ready to Partner with <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#212C5F] to-[#4A5B9F]">
-                Panasea Healthcare?
-              </span>
-            </motion.h2> */}
+              Let's Talk About 
+              Your Requirements
+            </motion.h2>
 
-            <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-4xl leading-tight text-gray-900">
-              {["Let's", "Talk", "About", "Your", "Requirements"].map(
-                (word, idx) => {
-                  return (
-                    <motion.span
-                      key={idx}
-                      className="inline-block mr-3"
-                      initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{
-                        duration: 0.7,
-                        delay: idx * 0.12,
-                        ease: "easeOut",
-                      }}
-                      viewport={{ once: true, amount: 0.5 }}
-                    >
-                      {word}
-                    </motion.span>
-                  );
-                },
-              )}
-              <br />
-            </h2>
-            {/* <motion.h1 className="px-10 text-gray-600">
-              Whether you're looking for a specific product, exploring a <br />
-              distribution partnership, or need a custom supply arrangement-
+            {/* Separator line */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              whileInView={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              style={{ originX: "center" }}
+              className="w-12 h-1 bg-gradient-to-r from-[#4A5B9F] to-[#7b8ec8] mx-auto mb-6 rounded-full"
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-base md:text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed font-light"
+            >
+              Whether you're looking for a specific product, exploring a
+              distribution partnership, or need a custom supply arrangement -
               we're here to help.
-            </motion.h1> */}
-
-            <p className="text-xs sm:text-sm md:text-base lg:text-md text-gray-600 font-light leading-relaxed">
-              Whether you're looking for a specific product, exploring a <br />
-              distribution partnership, or need a custom supply arrangement
-              we're here to help.{" "}
-            </p>
+            </motion.p>
           </motion.div>
         </div>
 
@@ -207,8 +194,8 @@ export default function ContactSection() {
               viewport={{ once: true }}
               className="lg:col-span-3 w-full"
             >
-              <div className="relative z-10 bg-white/90 backdrop-blur-lg border border-white/60 rounded-2xl p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-[#212C5F]/20 hover:bg-white">
-                <h3 className="text-xl sm:text-2xl font-medium text-gray-900 mb-6 flex items-center gap-3">
+              <div className="relative z-10 bg-white/90 backdrop-blur-lg border border-[#212C5F]/20 rounded-2xl p-8 md:p-10 hover:shadow-sm transition-all duration-500 hover:border-[#212C5F]/20 hover:bg-white">
+                <h3 className="text-lg md:text-2xl font-regular tracking-tight text-gray-900 mb-6 flex items-center gap-3">
                   <span className="w-1 h-8 bg-gradient-to-b from-[#212C5F] to-[#4A5B9F] rounded-full" />
                   Send us a Message
                 </h3>
@@ -222,7 +209,7 @@ export default function ContactSection() {
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-xs font-bold text-gray-600 uppercase mb-2 tracking-widest">
+                    <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
                       Name *
                     </label>
                     <input
@@ -242,7 +229,7 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-bold text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
                         Phone *
                       </label>
                       <input
@@ -259,7 +246,7 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-bold text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
                         Email *
                       </label>
                       <input
@@ -280,7 +267,7 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-bold text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
                         Organization *
                       </label>
                       <input
@@ -297,7 +284,7 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-bold text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
                         Inquiry Type
                       </label>
                       <select
@@ -320,7 +307,7 @@ export default function ContactSection() {
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-xs font-bold text-gray-600 uppercase mb-2 tracking-widest">
+                    <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
                       How did you find us?
                     </label>
                     <select
@@ -342,7 +329,7 @@ export default function ContactSection() {
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-xs font-bold text-gray-600 uppercase mb-2 tracking-widest">
+                    <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
                       Message *
                     </label>
                     <textarea
@@ -396,7 +383,7 @@ export default function ContactSection() {
                   <div className="absolute inset-0 bg-linear-to-br from-[#212C5F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute top-0 right-0 w-12 h-12 bg-blue-100/40 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform duration-500" />
                   <div className="relative z-10">
-                    <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
+                    <p className="text-xs font-regular text-blue-600 uppercase tracking-widest mb-3">
                       Phone
                     </p>
                     <div className="flex flex-col gap-2">
@@ -423,9 +410,8 @@ export default function ContactSection() {
                   className="group relative p-6 rounded-xl border border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-purple-50/50 to-purple-50/30 backdrop-blur-sm hover:border-purple-300/80 hover:shadow-xl hover:bg-gradient-to-br hover:from-purple-50/90 transition-all duration-300 overflow-hidden w-full"
                 >
                   <div className="absolute inset-0 bg-linear-to-br from-[#4A5B9F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute top-0 right-0 w-14 h-12 bg-purple-100/40 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform duration-500" />
                   <div className="relative z-10">
-                    <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-3">
+                    <p className="text-xs font-regular text-purple-600 uppercase tracking-widest mb-3">
                       Email
                     </p>
                     <a
@@ -442,12 +428,11 @@ export default function ContactSection() {
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="group relative p-6 rounded-xl border border-green-200/80 bg-gradient-to-br from-green-50/80 via-green-50/50 to-green-50/30 backdrop-blur-sm hover:border-green-300/80 hover:shadow-xl hover:bg-gradient-to-br hover:from-green-50/90 transition-all duration-300 overflow-hidden w-full"
+                className="group relative p-6 rounded-xl border border-[#DC3545]/30 bg-gradient-to-br from-[#DC3545]/10 via-[#DC3545]/5 to-[#E63946]/3 backdrop-blur-sm hover:border-[#DC3545]/50 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#DC3545]/15 transition-all duration-300 overflow-hidden w-full"
               >
-                <div className="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-0 right-0 w-12 h-12 bg-green-100/40 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-linear-to-br from-[#DC3545]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
-                  <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">
+                  <p className="text-xs font-regular text-[#DC3545] uppercase tracking-widest mb-3">
                     Address
                   </p>
                   <p className="text-sm font-semibold text-gray-900 leading-relaxed">

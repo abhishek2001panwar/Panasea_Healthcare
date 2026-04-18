@@ -150,73 +150,8 @@ export default function Tryhero() {
           ))}
         </motion.div>
 
-        {/* Links Section */}
-        <motion.div
-          className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-8 mt-6 sm:mt-7 md:mt-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 0.6 }}
-        >
-          {/* Explore our products link */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 2.2, duration: 0.6 }}
-            className="group relative inline-block"
-          >
-            <Link
-              href="/#products"
-              className="relative text-white text-xs sm:text-sm md:text-base font-light py-2 inline-block"
-            >
-              Explore our products
-              {/* Animated underline */}
-              <motion.span
-                className="absolute bottom-0 left-0 h-[1px] bg-white"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              />
-              {/* Static underline */}
-              <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/30" />
-            </Link>
-          </motion.div>
-
-          {/* Separator */}
-          <motion.span 
-            className="hidden md:block text-white/30"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 2.4, duration: 0.4 }}
-          >
-            •
-          </motion.span>
-
-          {/* Partner with us link */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 2.4, duration: 0.6 }}
-            className="group relative inline-block"
-          >
-            <Link
-              href="/#contact"
-              className="relative text-white text-xs sm:text-sm md:text-base font-light py-2 inline-block"
-            >
-              Partner with us
-              {/* Animated underline */}
-              <motion.span
-                className="absolute bottom-0 left-0 h-[1px] bg-white"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              />
-              {/* Static underline */}
-              <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/30" />
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        <div className="mt-8 sm:mt-10 md:mt-16 w-full grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-20">
+        {/* Stats Section */}
+        <div className="mt-8 sm:mt-10 md:mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-20">
           <motion.div
             className="inline-flex flex-col items-center gap-1 sm:gap-2 rounded-lg border border-white/20 bg-white/5 px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm text-white backdrop-blur-sm"
             initial={{ opacity: 0, y: 100 }}
@@ -256,6 +191,48 @@ export default function Tryhero() {
             <p className="text-[10px] sm:text-xs opacity-70">Customer Support</p>
           </motion.div>
         </div>
+
+        {/* Links Section */}
+        <motion.div
+          className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-8 mt-8 sm:mt-10 md:mt-12"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.6 }}
+        >
+          {/* Explore our products link */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 2.2, duration: 0.6 }}
+            className="group relative inline-block"
+          >
+            <div className="relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border border-white/40 bg-white/5  hover:bg-white/10 transition-colors duration-300 hover:border-white/60">
+              <Link
+                href="/#products"
+                className="relative text-white text-xs sm:text-sm md:text-base font-light inline-block"
+              >
+                Explore our products
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Partner with us link */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 2.4, duration: 0.6 }}
+            className="group relative inline-block"
+          >
+            <div className="relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border border-white/40 bg-white/5  hover:bg-white/10 transition-colors duration-300 hover:border-white/60">
+              <Link
+                href="/#contact"
+                className="relative text-white text-xs sm:text-sm md:text-base font-light inline-block"
+              >
+                Partner with us
+              </Link>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

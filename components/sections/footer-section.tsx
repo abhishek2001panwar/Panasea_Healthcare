@@ -85,7 +85,11 @@ about: [
 
 export function FooterSection() {
   return (
-    <footer className="bg-background">
+    <footer className="bg-background relative overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, rgba(241,245,252,0.6) 0%, rgba(245,248,253,0.4) 50%, rgba(240,244,251,0.5) 100%), var(--background)"
+      }}
+    >
       
       {/* Main Footer Content */}
       <div className="border-t border-border px-6 py-16 md:px-12 md:py-20 lg:px-20">
@@ -101,7 +105,7 @@ export function FooterSection() {
              className="mb-4"
             />
             
-            <p className="mt-4 max-w-xs  text-left text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-xs  text-left text-sm leading-relaxed text-muted-foreground font-light">
               Your trusted partner in pharmaceutical distribution and medical
               supply-delivering quality, reliability, and care across India and
               beyond.
@@ -110,7 +114,7 @@ export function FooterSection() {
 
           {/* Explore */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">
+            <h4 className="mb-4 text-sm font-regular tracking-widest uppercase text-foreground">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -118,7 +122,7 @@ export function FooterSection() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground font-light"
                   >
                     {link.label}
                   </Link>
@@ -129,7 +133,7 @@ export function FooterSection() {
 
           {/* About */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">
+            <h4 className="mb-4 text-sm font-regular tracking-widest uppercase text-foreground">
               Products
             </h4>
             <ul className="space-y-3">
@@ -137,7 +141,7 @@ export function FooterSection() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground font-light"
                   >
                     {link.label}
                   </Link>
@@ -148,7 +152,7 @@ export function FooterSection() {
 
           {/* Service */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">
+            <h4 className="mb-4 text-sm font-regular tracking-widest uppercase text-foreground">
               Contact Us
             </h4>
             <ul className="space-y-4">
@@ -156,7 +160,7 @@ export function FooterSection() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground font-light"
                   >
                     {link.label}
                   </Link>
@@ -172,7 +176,7 @@ export function FooterSection() {
       {/* Bottom Bar */}
       <div className="border-t border-border px-6 py-6 md:px-12 lg:px-20">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-muted-foreground font-light">
             © 2026 Panasea Healthcare. All rights reserved.{" "}
           </p>
 
@@ -180,7 +184,7 @@ export function FooterSection() {
           <div className="flex items-center gap-4">
             <Link
               href="#"
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+              className="text-xs text-muted-foreground transition-colors hover:text-foreground font-light"
             >
               Trusted Healthcare Distribution
             </Link>

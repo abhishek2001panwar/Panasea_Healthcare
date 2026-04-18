@@ -88,7 +88,7 @@ function MobileMenu() {
 
   return (
     <div className="md:hidden">
-      {/* Hamburger / Close — always on top */}
+      {/* Hamburger / Close - always on top */}
       <button
         onClick={() => setOpen(!open)}
         className="relative z-[60] flex flex-col justify-center items-center w-10 h-10 gap-[5px] group"

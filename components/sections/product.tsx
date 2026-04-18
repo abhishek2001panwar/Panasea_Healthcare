@@ -157,184 +157,148 @@ function ProductCard({
 }) {
   const { ref, inView } = useInView(0.1);
   const Icon = ICONS[index];
+  const numStr = String(index + 1).padStart(2, "0");
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className="group"
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0px)" : "translateY(32px)",
-        transition: `opacity 0.6s ease ${index * 80}ms, transform 0.6s ease ${index * 80}ms`,
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: "easeOut",
       }}
+      viewport={{ once: true }}
+      whileHover={{ y: -8 }}
+      className="group relative bg-gradient-to-br from-white/98 via-white/95 to-white/90 border border-[#212C5F]/12 rounded-3xl p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-[#4A5B9F]/40 hover:shadow-2xl hover:shadow-[#4A5B9F]/10 cursor-default backdrop-blur-xl"
     >
-      {/* Icon / Image area */}
-      <div className="relative w-full rounded-3xl h-32 sm:h-40 md:h-52 flex items-center justify-center bg-gradient-to-br from-[#212C5F]/10 to-[#4A5B9F]/10 overflow-hidden">
-        {feature.slug === "surgical-instruments-ot-equipment" ? (
-          // Surgery: Smaller image centered with background visible
-          <motion.div
-            initial={{ opacity: 0, scale: 0.6, rotate: -8 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.55, delay: index * 0.08 + 0.2 }}
-            viewport={{ once: true }}
-            className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 z-10"
-          >
-            <FadeImage
-              src={feature.image}
-              alt={feature.title}
-              fill
-              className="object-contain rounded-2xl"
-            />
-          </motion.div>
-        ) : feature.image && feature.image.startsWith("http") ? (
-          <>
-            <FadeImage
-              src={feature.image}
-              alt={feature.title}
-              fill
-              className="object-cover w-full h-full"
-            />
-            {/* SVG icon overlay on image card */}
-            <div
-              className="absolute bottom-3 right-3 bg-white/80 backdrop-blur-sm rounded-xl p-2 shadow-sm"
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? "scale(1)" : "scale(0.7)",
-                transition: `opacity 0.5s ease ${index * 80 + 300}ms, transform 0.5s ease ${index * 80 + 300}ms`,
-              }}
-            >
-              <Icon />
-            </div>
-          </>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.6, rotate: -8 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.55, delay: index * 0.08 + 0.2 }}
-            viewport={{ once: true }}
-            className="text-center z-10"
-          >
-            {/* Display emoji icon in center */}
-            <div className="text-5xl sm:text-7xl md:text-8xl drop-shadow-lg">
-              {feature.image || "📦"}
-            </div>
-          </motion.div>
-        )}
+      {/* Premium animated gradient background on hover */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"
+        style={{
+          background:
+            "radial-gradient(800px at 0% 0%, rgba(74,91,159,0.12) 0%, transparent 80%)",
+        }}
+      />
 
-        {/* Subtle shimmer line on hover */}
-        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-tr from-white/0 via-white/10 to-white/0" />
-      </div>
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Number */}
+        <motion.span
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.1,
+          }}
+          viewport={{ once: true }}
+          className="text-xs md:text-sm font-regular text-gray-400 tracking-widest mb-4 block"
+        >
+          ({numStr})
+        </motion.span>
 
-      {/* Content */}
-      <div className="py-4 sm:py-6">
-        <div className="flex items-center justify-between gap-2 sm:gap-3 group/title">
-          <h3
-            className="text-foreground text-base sm:text-lg md:text-xl font-semibold flex-1"
-            style={{
-              opacity: inView ? 1 : 0,
-              transform: inView ? "translateX(0)" : "translateX(-12px)",
-              transition: `opacity 0.5s ease ${index * 80 + 250}ms, transform 0.5s ease ${index * 80 + 250}ms`,
-            }}
-          >
-            {feature.title}
-          </h3>
+        {/* Title */}
+        <motion.h3
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.1 + 0.1,
+          }}
+          viewport={{ once: true }}
+          className="text-lg md:text-2xl font-regular text-[#212C5F] leading-snug mb-5 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#212C5F] group-hover:to-[#4A5B9F] group-hover:bg-clip-text transition-all duration-500"
+        >
+          {feature.title}
+        </motion.h3>
+
+        {/* Separator Line */}
+        <motion.div
+          className="w-12 h-px bg-gray-300 mb-5"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.1 + 0.15,
+          }}
+          viewport={{ once: true }}
+          style={{ originX: 0 }}
+        />
+
+        {/* Description - Flex grow to push button to bottom */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.1 + 0.2,
+          }}
+          viewport={{ once: true }}
+          className="text-sm md:text-base text-gray-600 leading-relaxed font-light group-hover:text-gray-700 transition-colors duration-300 mb-6 flex-grow"
+        >
+          {feature.description}
+        </motion.p>
+
+        {/* Learn More Button - Always at bottom */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.1 + 0.25,
+          }}
+          viewport={{ once: true }}
+        >
           <Link
             href={`/products/${feature.slug}`}
-            className="flex items-center justify-center text-foreground transition-all duration-300 flex-shrink-0 group-hover:translate-x-1"
-            aria-label={`View ${feature.title}`}
-            style={{
-              opacity: inView ? 1 : 0,
-              transition: `opacity 0.5s ease ${index * 80 + 350}ms`,
-            }}
+            className="inline-flex items-center gap-2 text-sm md:text-[15px] font-semibold text-[#212C5F] px-5 py-2.5 transition-all duration-300 hover:text-[#4A5B9F] hover:bg-gradient-to-r hover:from-[#4A5B9F]/5 "
           >
-            <span className="text-lg">→</span>
+            Learn More
+            <motion.span
+              whileHover={{ x: 3 }}
+              transition={{ duration: 0.2 }}
+            >
+              →
+            </motion.span>
           </Link>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 // Title word-by-word animation
 function AnimatedTitle() {
   const { ref, inView } = useInView(0.2);
-  const line1 = ["A", "Complete", "Portfolio"];
-  const line2 = ["of", "Medical", "Supplies"];
 
   return (
     <div ref={ref}>
-      {/* <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl capitalize">
-        <span className="block">
-          {line1.map((word, i) => (
-            <span
-              key={word}
-              className="inline-block mr-2"
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
-              }}
-            >
-              {word}
-            </span>
-          ))}
-        </span>
-        <span className="block">
-          {line2.map((word, i) => (
-            <span
-              key={word}
-              className="inline-block mr-2"
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.5s ease ${(i + line1.length) * 80 + 60}ms, transform 0.5s ease ${(i + line1.length) * 80 + 60}ms`,
-              }}
-            >
-              {word}
-            </span>
-          ))}
-        </span>
-      </h2> */}
-
-       <h2 className="text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl leading-tight mb-8 text-gray-900">
-                    {["A", "Complete", "Portfolio"].map((word, idx) => {
-                      return (
-                        <motion.span
-                          key={idx}
-                          className="inline-block mr-3"
-                          initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                          transition={{
-                            duration: 0.7,
-                            delay: idx * 0.12,
-                            ease: "easeOut",
-                          }}
-                          viewport={{ once: true, amount: 0.5 }}
-                        >
-                          {word}
-                        </motion.span>
-                      );
-                    })}
-                    <br />
-                    {["of", "Medical", "Supplies"].map((word, idx) => {
-                      return (
-                        <motion.span
-                          key={`line2-${idx}`}
-                          className="inline-block mr-3"
-                          initial={{ opacity: 0, scale: 0.5, y: 20 }}
-                          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                          transition={{
-                            duration: 0.7,
-                            delay: (idx + 4.5) * 0.12,
-                            ease: "easeOut",
-                          }}
-                          viewport={{ once: true, amount: 0.5 }}
-                        >
-                          {word}
-                        </motion.span>
-                      );
-                    })}
-                  </h2>
+      <motion.h2
+        className="text-3xl md:text-5xl lg:text-5xl capitalize font-regular tracking-tighter leading-tight text-gray-900 mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
+        <motion.span className="block">A Complete Portfolio  of Medical   Supplies</motion.span>
+        {/* <span className="block">
+          of Medical
+          <motion.span
+            className="gradient-shimmer-text inline-block ml-2"
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+          >
+            Supplies
+          </motion.span>
+        </span> */}
+      </motion.h2>
+        <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  style={{ originX: "center" }}
+                  className="w-12 h-1 bg-gradient-to-r from-[#4A5B9F] to-[#7b8ec8] mx-auto mb-6 rounded-full"
+                />
     </div>
   );
 }
@@ -342,42 +306,88 @@ function AnimatedTitle() {
 function AnimatedSubtext() {
   const { ref, inView } = useInView(0.2);
   return (
-    <p
+    <motion.p
       ref={ref}
-      className="mt-6 sm:mt-8 px-4 sm:px-6 md:px-10 leading-relaxed text-muted-foreground text-sm sm:text-base md:text-lg text-center"
-      style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(16px)",
-        transition: "opacity 0.6s ease 400ms, transform 0.6s ease 400ms",
-      }}
+      className="mt-6 sm:mt-8 leading-relaxed text-neutral-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light"
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.25 }}
+      viewport={{ once: true }}
     >
-      From daily-use consumables to specialized surgical and diagnostic equipment , <br /> we carry
-      everything a modern healthcare facility needs.
-    </p>
+      From daily-use consumables to specialized surgical and diagnostic equipment, we carry everything a modern healthcare facility needs.
+    </motion.p>
   );
 }
 
 function AnimatedLabel() {
   const { ref, inView } = useInView(0.2);
   return (
-       <motion.p
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="text-xs uppercase tracking-widest text-[#212C5F] font-bold mb-4 sm:mb-6"
-            >
-                Our Products
-            </motion.p>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: 0.05 }}
+      viewport={{ once: true }}
+      className="inline-block mb-7 relative"
+    >
+      <motion.span
+        className="text-[11px] font-bold tracking-[0.4em] uppercase text-[#4A5B9F] block py-1 px-4"
+        whileHover={{ letterSpacing: "0.5em" }}
+        transition={{ duration: 0.3 }}
+      >
+        Our Products
+      </motion.span>
+    </motion.div>
   );
 }
 
 export function Products() {
   return (
-    <section id="products" className="bg-[#FAF9F7]">
+    <section id="products" className="bg-gradient-to-br from-[#FAFAF8] via-[#F4F1EC] to-[#F0EDEA] relative overflow-hidden">
+      {/* Animated background orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{ x: [0, 30, 0], y: [0, -20, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-20 -left-24 w-96 h-96 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(33,44,95,0.15) 0%, transparent 70%)",
+          }}
+        />
+        <motion.div
+          animate={{ x: [0, -20, 0], y: [0, 30, 0], scale: [1, 1.08, 1] }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute -bottom-16 -right-20 w-[440px] h-[440px] rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(74,91,159,0.12) 0%, transparent 70%)",
+          }}
+        />
+        <motion.div
+          animate={{ x: [0, 15, 0], y: [0, 15, 0] }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(123,142,200,0.08) 0%, transparent 70%)",
+          }}
+        />
+      </div>
+
       {/* Section Title */}
-      <div className="px-4 sm:px-6 md:py-10 md:px-12 lg:px-20 py-6 sm:py-8">
-        <div className="text-center">
+      <div className="relative z-10 px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
+        <div className="text-center max-w-4xl mx-auto">
           <AnimatedLabel />
           <AnimatedTitle />
           <AnimatedSubtext />
@@ -385,14 +395,38 @@ export function Products() {
       </div>
 
       {/* Features Grid */}
-      <div className="grid grid-cols-1 gap-3 sm:gap-4 px-4 sm:px-6 md:grid-cols-3 max-w-7xl mx-auto">
+      <div className="relative z-10 grid grid-cols-1 gap-6 sm:gap-5 px-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto md:px-12 lg:px-16 pb-16 sm:pb-20 md:pb-28">
         {features.map((feature, index) => (
           <ProductCard key={feature.title} feature={feature} index={index} />
         ))}
       </div>
 
-      {/* CTA Link */}
-      <div className="flex justify-center px-4 sm:px-6 pb-16 sm:pb-20 md:pb-28 md:px-12 lg:px-20"></div>
+      <style jsx>{`
+        .gradient-shimmer-text {
+          background: linear-gradient(
+            100deg,
+            #212c5f 0%,
+            #4a5b9f 35%,
+            #7b8ec8 60%,
+            #4a5b9f 85%,
+            #212c5f 100%
+          );
+          background-size: 300% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: shimmer-text 5s linear infinite;
+        }
+
+        @keyframes shimmer-text {
+          0% {
+            background-position: 0% center;
+          }
+          100% {
+            background-position: 300% center;
+          }
+        }
+      `}</style>
     </section>
   );
 }

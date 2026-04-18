@@ -153,7 +153,7 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-5xl lg:text-6xl capitalize font-regular tracking-tighter leading-tight text-gray-900 mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl capitalize font-regular tracking-tighter leading-tight text-gray-900 mb-6"
             >
               Let's Talk About 
               Your Requirements

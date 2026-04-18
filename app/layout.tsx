@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { NavbarNew } from "@/components/nav";
+import { LoadingScreen } from "@/components/loading-screen";
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">
+        <LoadingScreen />
         <NavbarNew />
         {children}
         <Analytics />

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FadeImage } from "@/components/fade-image";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Minimalist SVG icons for each product
 const PharmaIcon = () => (
@@ -84,21 +85,21 @@ const features = [
     title: "Pharmaceuticals",
     description:
       "A broad range of prescription medicines, life-saving drugs, OTC products, and wellness supplements - fully compliant with drug regulatory standards.",
-    image: "💊",
+    image: "/pharma.webp",
     slug: "pharmaceuticals",
   },
   {
     title: "Medical Disposables",
     description:
       "Hospital-grade gloves, syringes, IV sets, surgical masks, drapes, and protective equipment for clinics, hospitals, and diagnostic labs.",
-    image: "🩺",
+    image: "/stethoscope.webp",
     slug: "medical-disposables",
   },
   {
     title: "Diagnostic Equipment",
     description:
       "High-performance imaging, monitoring, and diagnostic instruments from globally trusted brands, supporting precision in patient care.",
-    image: "🔭",
+    image: "/microscope.webp",
     slug: "diagnostic-equipment",
   },
   {
@@ -112,14 +113,14 @@ const features = [
     title: "Lab Reagents & Test Kits",
     description:
       "Specialized diagnostic consumables, lab reagents, rapid test kits, and sample collection supplies for pathology and research labs.",
-    image: "🧪",
+    image: "/reagent.webp",
     slug: "lab-reagents-test-kits",
   },
   {
     title: "HVAC & Clean Room Solutions",
     description:
       "Hospital-grade HEPA filtration systems and climate control solutions designed to maintain sterile conditions in critical care environments.",
-    image: "🌡️",
+    image: "/thermometer.webp",
     slug: "hvac-clean-room-solutions",
   },
 ];
@@ -183,19 +184,37 @@ function ProductCard({
       />
 
       <div className="relative z-10 flex flex-col h-full">
-        {/* Number */}
-        <motion.span
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{
-            duration: 0.5,
-            delay: index * 0.1,
-          }}
-          viewport={{ once: true }}
-          className="text-xs md:text-sm font-regular text-gray-400 tracking-widest mb-4 block"
-        >
-          ({numStr})
-        </motion.span>
+        {/* Number with Icon in corner */}
+        <div className="flex items-start justify-between mb-4">
+          
+          {/* Feature image in top right corner */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1 + 0.05,
+            }}
+            viewport={{ once: true }}
+            className="text-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+          >
+           <Image src={feature.image} alt={feature.title} width={48} height={48} className="w-12 h-12" />
+           
+          </motion.div>
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+            }}
+            viewport={{ once: true }}
+            className="text-xs md:text-sm p-2 border bg-[#4A5B9F]/10 rounded-lg font-regular text-gray-400 tracking-widest block"
+          >
+            {numStr}
+          </motion.span>
+
+        </div>
 
         {/* Title */}
         <motion.h3

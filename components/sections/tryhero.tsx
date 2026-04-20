@@ -65,7 +65,7 @@ export default function Tryhero() {
   }, []);
 
   const paragraph =
-    "From pharmaceuticals and surgical equipment to diagnostics and medical disposables we deliver quality-assured medical products to hospitals, clinics, and pharmacies across India and beyond.";
+    "From pharmaceuticals and surgical equipment to diagnostics and medical disposables - we deliver quality-assured medical products to hospitals, clinics, and pharmacies across India and beyond.";
   const words = paragraph.split(" ");
 
   const containerVariants = {

@@ -110,7 +110,7 @@ const features = [
     slug: "surgical-instruments-ot-equipment",
   },
   {
-    title: "Lab Reagents & Test Kits",
+    title: "Lab Reagents  & Test Kits",
     description:
       "Specialized diagnostic consumables, lab reagents, rapid test kits, and sample collection supplies for pathology and research labs.",
     image: "/reagent.webp",
@@ -292,7 +292,7 @@ function AnimatedTitle() {
   return (
     <div ref={ref}>
       <motion.h2
-        className="text-3xl md:text-5xl lg:text-5xl capitalize font-regular tracking-tighter leading-tight text-gray-900 mb-6"
+        className="text-3xl md:text-5xl lg:text-5xl  font-regular tracking-tighter leading-tight text-gray-900 mb-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.1 }}
@@ -327,7 +327,7 @@ function AnimatedSubtext() {
   return (
     <motion.p
       ref={ref}
-      className="mt-6 sm:mt-8 leading-relaxed text-neutral-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light"
+      className="mt-6 sm:mt-3 leading-relaxed text-neutral-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light"
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.25 }}
@@ -405,7 +405,7 @@ export function Products() {
       </div>
 
       {/* Section Title */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
+      <div className="relative z-10 px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-16">
         <div className="text-center max-w-4xl mx-auto">
           <AnimatedLabel />
           <AnimatedTitle />

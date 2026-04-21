@@ -262,14 +262,14 @@ const AboutSection: React.FC = () => {
               />
 
               {/* Subtle grid background */}
-              <div
+              {/* <div
                 className="absolute inset-0 opacity-[0.03] pointer-events-none rounded-3xl"
                 style={{
                   backgroundImage:
                     "linear-gradient(to right, #212C5F 1px, transparent 1px), linear-gradient(to bottom, #212C5F 1px, transparent 1px)",
                   backgroundSize: "30px 30px",
                 }}
-              />
+              /> */}
 
               <div className="relative z-10">
                 <motion.h3

@@ -110,7 +110,7 @@ const features = [
     slug: "surgical-instruments-ot-equipment",
   },
   {
-    title: "Lab Reagents  & Test Kits",
+    title: "Lab Reagents & Test Kits",
     description:
       "Specialized diagnostic consumables, lab reagents, rapid test kits, and sample collection supplies for pathology and research labs.",
     image: "/reagent.webp",
@@ -225,7 +225,7 @@ function ProductCard({
             delay: index * 0.1 + 0.1,
           }}
           viewport={{ once: true }}
-          className="text-lg md:text-2xl font-regular text-[#212C5F] leading-snug mb-5 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#212C5F] group-hover:to-[#4A5B9F] group-hover:bg-clip-text transition-all duration-500"
+          className="text-lg md:text-2xl font-regular text-[#212C5F] leading-snug mb-5 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#212C5F] group-hover:to-[#4A5B9F] group-hover:bg-clip-text transition-all duration-500 line-clamp-2 min-h-[56px] md:min-h-[64px]"
         >
           {feature.title}
         </motion.h3>

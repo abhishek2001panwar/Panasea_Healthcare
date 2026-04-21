@@ -194,7 +194,7 @@ export default function Tryhero() {
 
         {/* Links Section */}
         <motion.div
-          className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-8 mt-8 sm:mt-10 md:mt-12"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-8 mt-8 sm:mt-10 md:mt-12"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.6 }}
@@ -206,8 +206,13 @@ export default function Tryhero() {
             transition={{ delay: 2.2, duration: 0.6 }}
             className="group relative inline-block"
           >
-            <div className="relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border border-white/40 bg-white/5  hover:bg-white/10 transition-colors duration-300 hover:border-white/60">
+            <div   style={{
+                background: "linear-gradient(135deg, #212C5F 0%, #4A5B9F 100%)",
+                boxShadow: "0 4px 20px rgba(33,44,95,0.25)",
+              }}
+               className="relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg  transition-colors duration-300 hover:border-white/60">
               <Link
+              
                 href="/#products"
                 className="relative text-white text-xs sm:text-sm md:text-base font-light inline-block"
               >
@@ -223,7 +228,10 @@ export default function Tryhero() {
             transition={{ delay: 2.4, duration: 0.6 }}
             className="group relative inline-block"
           >
-            <div className="relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border border-white/40 bg-white/5  hover:bg-white/10 transition-colors duration-300 hover:border-white/60">
+            <div   style={{
+                background: "linear-gradient(135deg, #212C5F 0%, #4A5B9F 100%)",
+                boxShadow: "0 4px 20px rgba(33,44,95,0.25)",
+              }} className="relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg   transition-colors duration-300 hover:border-white/60">
               <Link
                 href="/#contact"
                 className="relative text-white text-xs sm:text-sm md:text-base font-light inline-block"

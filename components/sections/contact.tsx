@@ -89,7 +89,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-5 bg-gradient-to-b from-[#F9F7F3] via-white to-white overflow-hidden flex flex-col"
+      className="relative py-5 bg-[#1E2B5F] overflow-hidden flex flex-col"
     >
       {/* Premium Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -118,6 +118,11 @@ export default function ContactSection() {
           }}
           className="absolute bottom-20 -right-40 w-[500px] h-[500px] bg-gradient-to-l from-[#212C5F]/15 to-[#4A5B9F]/5 rounded-full blur-3xl"
         />
+        {/* Additional decorative blobs */}
+        <div className="pointer-events-none absolute -top-16 -right-16 w-72 h-72 rounded-full"
+          style={{ background: "rgba(100,130,255,0.06)" }} />
+        <div className="pointer-events-none absolute -bottom-10 -left-10 w-52 h-52 rounded-full"
+          style={{ background: "rgba(80,200,180,0.05)" }} />
       </div>
 
       <div className="relative z-10 flex flex-col h-full">
@@ -139,8 +144,8 @@ export default function ContactSection() {
               className="inline-block mb-6 relative"
             >
               <motion.span
-                className="text-[11px] font-bold tracking-[0.4em] uppercase text-[#4A5B9F] block py-1 px-4"
-                whileHover={{ letterSpacing: "0.5em" }}
+                className="text-[11px] font-regular tracking-[0.4em] uppercase text-[#4A5B9F] block py-1 px-4 border rounded-full" 
+  style={{ color: "#96C5FF", borderColor: "rgba(150,197,255,0.35)" }}                whileHover={{ letterSpacing: "0.5em" }}
                 transition={{ duration: 0.3 }}
               >
                 Get In Touch
@@ -153,7 +158,7 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl lg:text-5xl capitalize font-regular tracking-tighter leading-tight text-gray-900 mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl capitalize font-regular tracking-tighter leading-tight text-white mb-6"
             >
               Let's Talk About 
               Your Requirements
@@ -174,7 +179,7 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-base md:text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-light"
             >
               Whether you're looking for a specific product, exploring a
               distribution partnership, or need a custom supply arrangement -
@@ -194,8 +199,8 @@ export default function ContactSection() {
               viewport={{ once: true }}
               className="lg:col-span-3 w-full"
             >
-              <div className="relative z-10 bg-white/90 backdrop-blur-lg border border-[#212C5F]/20 rounded-2xl p-8 md:p-10 hover:shadow-sm transition-all duration-500 hover:border-[#212C5F]/20 hover:bg-white">
-                <h3 className="text-lg md:text-2xl font-regular tracking-tight text-gray-900 mb-6 flex items-center gap-3">
+              <div className="relative z-10 rounded-2xl overflow-hidden border p-8 md:p-10" style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(150,197,255,0.2)" }}>
+                <h3 className="text-lg md:text-2xl font-regular tracking-tight text-white mb-6 flex items-center gap-3">
                   <span className="w-1 h-8 bg-gradient-to-b from-[#212C5F] to-[#4A5B9F] rounded-full" />
                   Send us a Message
                 </h3>
@@ -209,7 +214,7 @@ export default function ContactSection() {
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
+                    <label className="block text-xs font-regular uppercase mb-2 tracking-widest" style={{ color: "rgba(150,197,255,0.7)" }}>
                       Name *
                     </label>
                     <input
@@ -218,7 +223,10 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200/80 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/30 focus:bg-white hover:border-gray-300"
+                      className="w-full px-4 py-3 rounded-lg border text-white placeholder-gray-500 text-sm transition-all duration-300 focus:outline-none"
+                      style={{ borderColor: "rgba(150,197,255,0.2)", backgroundColor: "rgba(255,255,255,0.02)" }}
+                      onFocus={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.5)"}
+                      onBlur={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.2)"}
                       placeholder="Dr. Anita Sharma"
                     />
                   </motion.div>
@@ -229,7 +237,7 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular uppercase mb-2 tracking-widest" style={{ color: "rgba(150,197,255,0.7)" }}>
                         Phone *
                       </label>
                       <input
@@ -238,7 +246,10 @@ export default function ContactSection() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200/80 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/30 focus:bg-white hover:border-gray-300"
+                        className="w-full px-4 py-3 rounded-lg border text-white placeholder-gray-500 text-sm transition-all duration-300 focus:outline-none"
+                        style={{ borderColor: "rgba(150,197,255,0.2)", backgroundColor: "rgba(255,255,255,0.02)" }}
+                        onFocus={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.5)"}
+                        onBlur={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.2)"}
                         placeholder="+91 98765 43210"
                       />
                     </motion.div>
@@ -246,7 +257,7 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular uppercase mb-2 tracking-widest" style={{ color: "rgba(150,197,255,0.7)" }}>
                         Email *
                       </label>
                       <input
@@ -255,7 +266,10 @@ export default function ContactSection() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200/80 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/30 focus:bg-white hover:border-gray-300"
+                        className="w-full px-4 py-3 rounded-lg border text-white placeholder-gray-500 text-sm transition-all duration-300 focus:outline-none"
+                        style={{ borderColor: "rgba(150,197,255,0.2)", backgroundColor: "rgba(255,255,255,0.02)" }}
+                        onFocus={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.5)"}
+                        onBlur={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.2)"}
                         placeholder="you@hospital.com"
                       />
                     </motion.div>
@@ -267,7 +281,7 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular uppercase mb-2 tracking-widest" style={{ color: "rgba(150,197,255,0.7)" }}>
                         Organization *
                       </label>
                       <input
@@ -276,7 +290,10 @@ export default function ContactSection() {
                         value={formData.organization}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200/80 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/30 focus:bg-white hover:border-gray-300"
+                        className="w-full px-4 py-3 rounded-lg border text-white placeholder-gray-500 text-sm transition-all duration-300 focus:outline-none"
+                        style={{ borderColor: "rgba(150,197,255,0.2)", backgroundColor: "rgba(255,255,255,0.02)" }}
+                        onFocus={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.5)"}
+                        onBlur={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.2)"}
                         placeholder="Apollo Hospital..."
                       />
                     </motion.div>
@@ -284,20 +301,31 @@ export default function ContactSection() {
                       whileHover={{ scale: 1.01 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
+                      <label className="block text-xs font-regular uppercase mb-2 tracking-widest" style={{ color: "rgba(150,197,255,0.7)" }}>
                         Inquiry Type
                       </label>
                       <select
                         name="type"
                         value={formData.type}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200/80 bg-white/80 backdrop-blur-sm text-gray-900 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/30 focus:bg-white hover:border-gray-300"
+                        className="w-full px-4 py-3 rounded-lg border text-white text-sm transition-all duration-300 focus:outline-none cursor-pointer appearance-none"
+                        style={{ 
+                          borderColor: "rgba(150,197,255,0.2)", 
+                          backgroundColor: "rgba(255,255,255,0.02)",
+                          backgroundImage: "url('data:image/svg+xml;utf8,<svg fill=\"rgba(150,197,255,0.5)\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>')",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "right 0.5rem center",
+                          backgroundSize: "1.5em 1.5em",
+                          paddingRight: "2.5rem"
+                        }}
+                        onFocus={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.5)"}
+                        onBlur={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.2)"}
                       >
-                        <option value="">Select Type</option>
-                        <option value="partnership">Partnership</option>
-                        <option value="bulk_order">Bulk Order</option>
-                        <option value="support">Support</option>
-                        <option value="general">General Inquiry</option>
+                        <option value="" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Select Type</option>
+                        <option value="partnership" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Partnership</option>
+                        <option value="bulk_order" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Bulk Order</option>
+                        <option value="support" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Support</option>
+                        <option value="general" style={{ backgroundColor: "#1E2B5F", color: "white" }}>General Inquiry</option>
                       </select>
                     </motion.div>
                   </div>
@@ -307,20 +335,31 @@ export default function ContactSection() {
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
+                    <label className="block text-xs font-regular uppercase mb-2 tracking-widest" style={{ color: "rgba(150,197,255,0.7)" }}>
                       How did you find us?
                     </label>
                     <select
                       name="way"
                       value={formData.way}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200/80 bg-white/80 backdrop-blur-sm text-gray-900 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/30 focus:bg-white hover:border-gray-300"
+                      className="w-full px-4 py-3 rounded-lg border text-white text-sm transition-all duration-300 focus:outline-none cursor-pointer appearance-none"
+                      style={{ 
+                        borderColor: "rgba(150,197,255,0.2)", 
+                        backgroundColor: "rgba(255,255,255,0.02)",
+                        backgroundImage: "url('data:image/svg+xml;utf8,<svg fill=\"rgba(150,197,255,0.5)\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>')",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "right 0.5rem center",
+                        backgroundSize: "1.5em 1.5em",
+                        paddingRight: "2.5rem"
+                      }}
+                      onFocus={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.5)"}
+                      onBlur={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.2)"}
                     >
-                      <option value="website">Website</option>
-                      <option value="search_engine">Search Engine</option>
-                      <option value="social_media">Social Media</option>
-                      <option value="referral">Referral</option>
-                      <option value="other">Other</option>
+                      <option value="website" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Website</option>
+                      <option value="search_engine" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Search Engine</option>
+                      <option value="social_media" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Social Media</option>
+                      <option value="referral" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Referral</option>
+                      <option value="other" style={{ backgroundColor: "#1E2B5F", color: "white" }}>Other</option>
                     </select>
                   </motion.div>
 
@@ -329,7 +368,7 @@ export default function ContactSection() {
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <label className="block text-xs font-regular text-gray-600 uppercase mb-2 tracking-widest">
+                    <label className="block text-xs font-regular uppercase mb-2 tracking-widest" style={{ color: "rgba(150,197,255,0.7)" }}>
                       Message *
                     </label>
                     <textarea
@@ -338,7 +377,9 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       required
                       rows={3}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200/80 bg-white/80 backdrop-blur-sm text-gray-900 placeholder-gray-400 text-sm transition-all duration-300 focus:outline-none focus:border-[#212C5F] focus:ring-2 focus:ring-[#212C5F]/30 focus:bg-white hover:border-gray-300 resize-none"
+                      className="w-full px-4 py-3 rounded-lg border bg-white/5 text-white placeholder-gray-500 text-sm transition-all duration-300 focus:outline-none resize-none" style={{ borderColor: "rgba(150,197,255,0.2)", backgroundColor: "rgba(255,255,255,0.02)" }}
+                      onFocus={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.5)"}
+                      onBlur={(e) => e.currentTarget.style.borderColor = "rgba(150,197,255,0.2)"}
                       placeholder="Tell us what you're looking for..."
                     />
                   </motion.div>
@@ -357,7 +398,7 @@ export default function ContactSection() {
                     </span>
                   </motion.button>
 
-                  <p className="text-xs text-gray-500 text-center pt-2">
+                  <p className="text-xs text-gray-400 text-center pt-2">
                     We'll get back to you within 24 hours
                   </p>
                 </form>
@@ -378,24 +419,24 @@ export default function ContactSection() {
                 <motion.div
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
-                  className="group relative p-6 rounded-xl border border-blue-200/80 bg-gradient-to-br from-blue-50/80 via-blue-50/50 to-blue-50/30 backdrop-blur-sm hover:border-blue-300/80 hover:shadow-xl hover:bg-gradient-to-br hover:from-blue-50/90 transition-all duration-300 overflow-hidden"
+                  className="group relative p-6 rounded-xl border overflow-hidden"
+                  style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(150,197,255,0.3)" }}
                 >
-                  <div className="absolute inset-0 bg-linear-to-br from-[#212C5F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute top-0 right-0 w-12 h-12 bg-blue-100/40 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform duration-500" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "rgba(150,197,255,0.08)" }} />
                   <div className="relative z-10">
-                    <p className="text-xs font-regular text-blue-600 uppercase tracking-widest mb-3">
+                    <p className="text-xs font-regular uppercase tracking-widest mb-3" style={{ color: "rgba(150,197,255,0.7)" }}>
                       Phone
                     </p>
                     <div className="flex flex-col gap-2">
                       <a
                         href="tel:+919686495574"
-                        className="text-sm font-semibold text-gray-900 hover:text-[#212C5F] transition-colors duration-300"
+                        className="text-sm font-semibold text-white hover:text-blue-300 transition-colors duration-300"
                       >
                         +91-9686495574
                       </a>
                       <a
                         href="tel:+917022443765"
-                        className="text-sm font-semibold text-gray-900 hover:text-[#212C5F] transition-colors duration-300"
+                        className="text-sm font-semibold text-white hover:text-blue-300 transition-colors duration-300"
                       >
                         +91-7022443765
                       </a>
@@ -407,16 +448,17 @@ export default function ContactSection() {
                 <motion.div
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
-                  className="group relative p-6 rounded-xl border border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-purple-50/50 to-purple-50/30 backdrop-blur-sm hover:border-purple-300/80 hover:shadow-xl hover:bg-gradient-to-br hover:from-purple-50/90 transition-all duration-300 overflow-hidden w-full"
+                  className="group relative p-6 rounded-xl border overflow-hidden w-full"
+                  style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(150,197,255,0.3)" }}
                 >
-                  <div className="absolute inset-0 bg-linear-to-br from-[#4A5B9F]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "rgba(150,197,255,0.08)" }} />
                   <div className="relative z-10">
-                    <p className="text-xs font-regular text-purple-600 uppercase tracking-widest mb-3">
+                    <p className="text-xs font-regular uppercase tracking-widest mb-3" style={{ color: "rgba(150,197,255,0.7)" }}>
                       Email
                     </p>
                     <a
                       href="mailto:panaseahealthcare@gmail.com"
-                      className="text-sm font-semibold text-gray-900 hover:text-[#212C5F] transition-colors duration-300 break-all"
+                      className="text-sm font-semibold text-white hover:text-purple-300 transition-colors duration-300 break-all"
                     >
                       panaseahealthcare@gmail.com
                     </a>
@@ -428,14 +470,15 @@ export default function ContactSection() {
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="group relative p-6 rounded-xl border border-[#DC3545]/30 bg-gradient-to-br from-[#DC3545]/10 via-[#DC3545]/5 to-[#E63946]/3 backdrop-blur-sm hover:border-[#DC3545]/50 hover:shadow-xl hover:bg-gradient-to-br hover:from-[#DC3545]/15 transition-all duration-300 overflow-hidden w-full"
+                className="group relative p-6 rounded-xl border overflow-hidden w-full"
+                style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(150,197,255,0.3)" }}
               >
-                <div className="absolute inset-0 bg-linear-to-br from-[#DC3545]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "rgba(150,197,255,0.08)" }} />
                 <div className="relative z-10">
-                  <p className="text-xs font-regular text-[#DC3545] uppercase tracking-widest mb-3">
+                  <p className="text-xs font-regular uppercase tracking-widest mb-3" style={{ color: "rgba(150,197,255,0.7)" }}>
                     Address
                   </p>
-                  <p className="text-sm font-semibold text-gray-900 leading-relaxed">
+                  <p className="text-sm font-semibold" style={{ color: "rgba(200,215,255,0.8)" }}>
                     Benson Police Station, 31, Coles Road, Frazer Town, Benson
                     Town, Bengaluru, Karnataka 560046
                   </p>
@@ -446,7 +489,8 @@ export default function ContactSection() {
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-                className="relative w-full h-56 md:h-64 rounded-xl border border-gray-200/80 overflow-hidden shadow-lg hover:shadow-2xl group bg-white/80 backdrop-blur-sm"
+                className="relative w-full h-56 md:h-64 rounded-xl border overflow-hidden shadow-lg hover:shadow-2xl group"
+                style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(150,197,255,0.3)" }}
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6844638844753!2d77.60049632346947!3d13.00274869065947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1a79e99b7749%3A0xd4e51c123c4b8b!2sBenson%20Police%20Station!5e0!3m2!1sen!2sin!4v1234567890"

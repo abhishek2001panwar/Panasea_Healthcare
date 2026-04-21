@@ -242,6 +242,41 @@ body{
   height: 1px;
 }
 
+/* Style input autofill and autocomplete suggestions */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(30, 43, 95, 0.8) inset !important;
+  box-shadow: 0 0 0 30px rgba(30, 43, 95, 0.8) inset !important;
+  -webkit-text-fill-color: white !important;
+  color: white !important;
+}
+
+input:-webkit-autofill::first-line {
+  color: white !important;
+}
+
+/* Style option suggestions dropdown */
+datalist {
+  display: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 2px;
+  opacity: 0.6;
+  filter: invert(0.8);
+}
+
+/* Autocomplete suggestions styling (for browsers that support it) */
+:autofill,
+:-webkit-autofill {
+  background-color: rgba(150, 197, 255, 0.1) !important;
+  color: white !important;
+}
+
 
 :root {
   --teal: #212C5F;

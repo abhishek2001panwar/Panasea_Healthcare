@@ -77,17 +77,18 @@ about: [
   { label: "Lab Reagents & Test Kits", href: "/products/lab-reagents-test-kits" },
 ],
   service: [
-    { label: "📞 +91 876 543 210", href: "#" },
-    { label: "✉️ panaseahealthcare@gmail.com", href: "#" },
+    { label: "+91-9686495574", href: "tel:+919686495574" },
+    { label: "+91-7022443765", href: "tel:+917022443765" },
+    { label: "panaseahealthcare@gmail.com", href: "mailto:panaseahealthcare@gmail.com" },
     { label: "Pan-India Distribution  \nImport & Export Services", href: "#" },
   ],
 };
 
 export function FooterSection() {
   return (
-    <footer className="bg-background relative overflow-hidden"
+    <footer className="bg-background relative overflow-hidden "
       style={{
-        background: "linear-gradient(135deg, rgba(241,245,252,0.6) 0%, rgba(245,248,253,0.4) 50%, rgba(240,244,251,0.5) 100%), var(--background)"
+        background: ""
       }}
     >
       
@@ -96,14 +97,15 @@ export function FooterSection() {
         <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
-          
+          <div className="mb-6 inline-flex items-center justify-center  rounded-xl p-4 border border-white/40 shadow-2xl shadow-white/10 hover:shadow-2xl hover:shadow-white/20 transition-all duration-300">
              <Image 
              src={'/logo.png'}
              alt="Panasea Healthcare Logo"
              width={170}
              height={40}
-             className="mb-4"
+             className="drop-shadow-sm"
             />
+          </div>
             
             <p className="mt-4 max-w-xs  text-left text-sm leading-relaxed text-muted-foreground font-light">
               Your trusted partner in pharmaceutical distribution and medical
@@ -155,7 +157,7 @@ export function FooterSection() {
             <h4 className="mb-4 text-sm font-regular tracking-widest uppercase text-foreground">
               Contact Us
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {footerLinks.service.map((link) => (
                 <li key={link.label}>
                   <Link
